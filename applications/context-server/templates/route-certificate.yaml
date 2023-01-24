@@ -4,7 +4,7 @@ kind: Certificate
 metadata:
   name: {{ include "context-server.fullname" . }}
   labels:
-    {{ include "context-server.metaLabels" . | nindent 4 }}
+    {{ include "context-server.labels" . | nindent 4 }}
 spec:
   secretName: {{ include "context-server.fullname" . }}-tls-sec
   issuerRef:
