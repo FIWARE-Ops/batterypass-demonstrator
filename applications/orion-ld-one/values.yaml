@@ -14,8 +14,6 @@ orion:
       existingSecret:
         name: mongodb-secret
         key: mongodb-root-password
-    logging:
-      level: "DEBUG"
   mongo:
     # we want to use the individually deployed mongodb
     enabled: false

@@ -5,6 +5,9 @@ orion:
       prometheus.io/port: '8000'
   broker:
     db:
+      auth: 
+        user: root
+        mech: "SCRAM-SHA-1"
       hosts:
         - mongodb-two
       user: root
