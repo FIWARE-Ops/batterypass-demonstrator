@@ -6,7 +6,7 @@ orion:
   broker:
     db:
       hosts:
-        - fiware-mongo-db-three-mongodb
+        - batterypass-mongodb-one
       user: root
       existingSecret:
         name: mongodb-secret
