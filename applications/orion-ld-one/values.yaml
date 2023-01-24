@@ -6,7 +6,7 @@ orion:
   broker:
     db:
       auth: 
-        mech: SCRAM-SHA-1
+        mech: "SCRAM-SHA-1"
       hosts:
         - mongodb-one
       user: root
