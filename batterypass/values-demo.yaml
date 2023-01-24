@@ -1,9 +1,10 @@
 ## values to be used for deployement in demo namespace
 ## additional config file is used, since we rely on managed databases there.
 
-source: https://github.com/fiware-ops/batterypass
+source: https://github.com/fiware-ops/batterypass-demonstrator
 release: batterypass
 destination_namespace: &destination batterypass
+purpose: &purpose batterypass-demo-env
 branch: &branch main
 secretsEnabled: &secretsEnabled false
 
@@ -13,6 +14,7 @@ applications:
     source_path: applications/mongodb-one
     source_ref: *branch
     destination: *destination
+    purpose: *purpose
     helm_values:
     - values.yaml
 
@@ -21,6 +23,7 @@ applications:
     source_path: applications/mongodb-two
     source_ref: *branch
     destination: *destination
+    purpose: *purpose
     helm_values:
     - values.yaml
 
@@ -29,6 +32,7 @@ applications:
     source_path: applications/mongodb-three
     source_ref: *branch
     destination: *destination
+    purpose: *purpose
     helm_values:
     - values.yaml 
 
@@ -37,6 +41,7 @@ applications:
     source_path: applications/orion-ld-one
     source_ref: *branch
     destination: *destination
+    purpose: *purpose
     helm_values:
     - values.yaml
 
@@ -45,6 +50,7 @@ applications:
     source_path: applications/orion-ld-two
     source_ref: *branch
     destination: *destination
+    purpose: *purpose
     helm_values:
     - values.yaml
 
@@ -53,6 +59,7 @@ applications:
     source_path: applications/orion-ld-three
     source_ref: *branch
     destination: *destination
+    purpose: *purpose
     helm_values:
     - values.yaml 
 
@@ -61,6 +68,7 @@ applications:
     source_path: applications/kong-one
     source_ref: *branch
     destination: *destination
+    purpose: *purpose
     helm_values:
     - values.yaml
     values: 
@@ -78,6 +86,7 @@ applications:
     source_path: applications/kong-two
     source_ref: *branch
     destination: *destination
+    purpose: *purpose
     helm_values:
     - values.yaml
     values: 
@@ -95,6 +104,7 @@ applications:
     source_path: applications/kong-three
     source_ref: *branch
     destination: *destination
+    purpose: *purpose
     helm_values:
     - values.yaml 
     values: 

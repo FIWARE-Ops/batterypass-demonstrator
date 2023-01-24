@@ -19,6 +19,7 @@ metadata:
 {{- end }}
   labels:
     destination-namespace: {{ .destination }}
+    purpose: {{ .purpose }}
 {{- if .values }}
 {{- if .values.fullnameOverride }}
 {{- if contains .values.fullnameOverride .name }}
