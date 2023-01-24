@@ -7,6 +7,6 @@ version: 0.1.0
 appVersion: "1.0.1"
 
 dependencies:
-- name: orion-ld
-  version: 1.0.2
-  repository: file://./charts/orion-ld
+- name: orion
+  version: 1.0.10
+  repository: https://fiware.github.io/helm-charts
