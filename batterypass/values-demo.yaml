@@ -126,12 +126,10 @@ applications:
     helm_values:
     - values.yaml 
     values: 
-      kong:
-        proxy: 
-          route:
-            host: context.batterypass.fiware.dev
-            certificate:
-              issuer:
-                kind: ClusterIssuer
-                name: letsencrypt-aws-prod
+      route:
+        host: context.batterypass.fiware.dev
+        certificate:
+          issuer:
+            kind: ClusterIssuer
+            name: letsencrypt-aws-prod
   
