@@ -9,7 +9,6 @@ data:
 
     services:
      
-      # keycloak example
       - host: "orion-ld-one"
         name: "orion-ld"
         port: 1026
