@@ -10,7 +10,7 @@ data:
     services:
      
       # keycloak example
-      - host: "batterypass-orion-ld-one"
+      - host: "orion-ld-three"
         name: "orion-ld"
         port: 1026
         protocol: http
