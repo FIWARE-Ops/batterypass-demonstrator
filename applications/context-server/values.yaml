@@ -1,0 +1,78 @@
+## deployment specific configuration
+deployment:
+  # -- initial number of target replications, can be different if autoscaling is enabled
+  replicaCount: 1
+  # -- number of old replicas to be retained
+  revisionHistoryLimit: 3
+  ## configuration of the context-server update strategy
+  updateStrategy:
+    # -- type of the update
+    type: RollingUpdate
+    # -- new pods will be added gradually
+    rollingUpdate:
+      # -- number of pods that can be created above the desired amount while updating
+      maxSurge: 1
+      # -- number of pods that can be unavailable while updating
+      maxUnavailable: 0
+  ## configuration of the image to be used
+  image:
+    # -- context-server image name
+    repository: wistefan/context-server
+    # -- tag of the image to be used
+    tag: 0.2.0
+    # -- specification of the image pull policy
+    pullPolicy: IfNotPresent
+  # -- additional labels for the deployment, if required
+  additionalLabels: {}
+  # -- additional annotations for the deployment, if required
+  additionalAnnotations: {}
+  # -- port to request health information at
+  healthPort: 8080
+  ## liveness and readiness probes of the context-server broker, they will be evaluated against the version endpoint
+  # ref: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes
+  livenessProbe:
+    initialDelaySeconds: 30
+    periodSeconds: 10
+    successThreshold: 1
+    timeoutSeconds: 30
+  readinessProbe:
+    initialDelaySeconds: 31
+    periodSeconds: 10
+    successThreshold: 1
+    timeoutSeconds: 30
+  # -- max age to be used for cache control
+  maxAge: 31536000
+  # -- context folder where the context json files will be stored
+  contextFolder: /ld-contexts
+
+## openshift specific route definition. Will not work on plain k8s
+route:
+  ## -- should the deployment create openshift routes
+  enabled: true
+  # -- annotations to be added to the route
+  annotations: {}
+  # -- host to be used
+  # host: localhost
+  # -- tls configuration for the route
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
+
+# -- port to make the server available at
+port: 8080
+
+
+## configuration for the k8s service to access context-server
+service:
+  # -- service type
+  type: ClusterIP
+  # -- port to be used by the service
+  port: 8080
+  # -- additional annotations, if required
+  annotations: {}
+
+# -- if a context-server specific service account should be used, it can be configured here
+# ref: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/
+serviceAccount:
+  # -- specifies if the account should be created
+  create: false

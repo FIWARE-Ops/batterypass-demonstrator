@@ -1,0 +1,7 @@
+apiVersion: v2
+name: context-server
+description: Chart holder for argo-cd
+
+type: application
+version: 0.0.1
+appVersion: "0.2.0"

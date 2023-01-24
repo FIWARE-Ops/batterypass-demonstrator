@@ -116,3 +116,22 @@ applications:
               issuer:
                 kind: ClusterIssuer
                 name: letsencrypt-aws-prod
+  
+  - name: context-server
+    enabled: true
+    source_path: applications/context-server
+    source_ref: *branch
+    destination: *destination
+    purpose: *purpose
+    helm_values:
+    - values.yaml 
+    values: 
+      kong:
+        proxy: 
+          route:
+            host: context.batterypass.fiware.dev
+            certificate:
+              issuer:
+                kind: ClusterIssuer
+                name: letsencrypt-aws-prod
+  

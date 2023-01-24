@@ -89,3 +89,11 @@ applications:
     purpose: *purpose
     helm_values:
     - values.yaml
+
+  - name: context-server
+    enabled: true
+    source_path: applications/context-server
+    destination: *destination
+    purpose: *purpose
+    helm_values:
+    - values.yaml
