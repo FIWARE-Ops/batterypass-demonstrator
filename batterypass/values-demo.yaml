@@ -76,10 +76,10 @@ applications:
         proxy: 
           route:
             host: one.batterypass.fiware.dev
-          certificate:
-            issuer:
-              kind: ClusterIssuer
-              name: letsencrypt-aws-prod
+            certificate:
+              issuer:
+                kind: ClusterIssuer
+                name: letsencrypt-aws-prod
 
   - name: kong-two
     enabled: true
@@ -94,10 +94,10 @@ applications:
         proxy: 
           route:
             host: two.batterypass.fiware.dev
-          certificate:
-            issuer:
-              kind: ClusterIssuer
-              name: letsencrypt-aws-prod
+            certificate:
+              issuer:
+                kind: ClusterIssuer
+                name: letsencrypt-aws-prod
 
   - name: kong-three
     enabled: true
@@ -112,7 +112,7 @@ applications:
         proxy: 
           route:
             host: three.batterypass.fiware.dev
-          certificate:
-            issuer:
-              kind: ClusterIssuer
-              name: letsencrypt-aws-prod
+            certificate:
+              issuer:
+                kind: ClusterIssuer
+                name: letsencrypt-aws-prod
