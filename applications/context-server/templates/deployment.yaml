@@ -58,8 +58,6 @@ spec:
             successThreshold: {{ .Values.deployment.readinessProbe.successThreshold }}
             timeoutSeconds: {{ .Values.deployment.readinessProbe.timeoutSeconds }}
           env:
-            - name: GENERAL_MAX_AGE
-              value: {{ .Values.deployment.maxAge | quote }}
             - name: MICRONAUT_SERVER_PORT
               value: {{ .Values.port | quote }}
             - name: MEMORY_ENABLED
