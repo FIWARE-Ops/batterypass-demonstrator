@@ -1,4 +1,4 @@
-orion-ld:
+orion:
   deployment:
     additionalAnnotations:
       prometheus.io/scrape: 'true'
