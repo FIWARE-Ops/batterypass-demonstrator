@@ -16,7 +16,7 @@ data:
         protocol: http
 
         routes:
-          - name: orion-keycloak
+          - name: orion-ld
             paths:
               - /orion-ld
             strip_path: true
