@@ -1,0 +1,17 @@
+orion-ld:
+  deployment:
+    additionalAnnotations:
+      prometheus.io/scrape: 'true'
+      prometheus.io/port: '8000'
+  broker:
+    db:
+      hosts:
+        - fiware-mongo-db-two-mongodb
+      user: root
+      existingSecret:
+        name: mongodb-secret
+        key: mongodb-root-password
+
+  mongo:
+    # we want to use the individually deployed mongodb
+    enabled: false

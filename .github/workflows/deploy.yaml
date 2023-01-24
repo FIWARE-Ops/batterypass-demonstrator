@@ -1,0 +1,78 @@
+name: Deploy to the fiware custer
+
+on:
+  push:
+    branches:
+      - 'main'
+
+jobs:
+
+  deploy:
+
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Git checkout
+        uses: actions/checkout@v1
+
+      - name: Authenticate and set context
+        uses: redhat-actions/oc-login@v1
+
+        with:
+          # URL to your OpenShift cluster.
+          openshift_server_url: ${{ secrets.OPENSHIFT_SERVER_FIWARE }}
+
+          # Authentication Token. Can use username and password instead.
+          openshift_token: ${{ secrets.OPENSHIFT_TOKEN_FIWARE }}
+
+          # Disables SSL cert checking. Use this if you don't have the certificate authority data.
+          insecure_skip_tls_verify: true
+
+      - name: Deploy applications
+        run: |
+
+          cd batterypass/
+          # render app of apps and apply it
+          helm template ${{ secrets.OVERWRITE_VALUES }} -f values-demo.yaml . | oc -n argocd apply -f -
+
+      - name: Check if all apps are healthy
+        run: |
+          # wait for the changes to take place and potentially crash the applications
+          sleep 30
+
+          # bool to check if the apps are healthy
+          healthy=0
+          # counter to set a number of tries
+          try=0
+          tries=30
+          # get the list of apps in the namespace 
+          componentsInstalled=$(grep "enabled: true" batterypass/values-demo.yaml -c)
+          # check if the condition is met
+          while [ $healthy == 0 ] && [ $try -lt $tries ]
+          do
+            apps=$(oc get applications.argoproj.io --no-headers -n argocd -l destination-namespace=batterypass | awk '{ print $3 }')
+            healthyapps=0
+            for app in $apps
+            do
+              if [ $app != "Healthy" ]
+              then
+                echo "Trying again in 10 seconds"
+                sleep 10
+                try=$(( try + 1 ))
+                break
+              elif [ $app == "Healthy" ]
+              then  
+                healthyapps=$(( healthyapps + 1 ))
+              fi
+              if [ $healthyapps == $componentsInstalled ]
+              then
+                healthy=1
+              fi
+            done
+          done
+
+          if [ $try -eq $tries ]
+          then
+            echo "ERROR: Tried too many times"
+            exit 1
+          fi
