@@ -2,7 +2,7 @@
 ## additional config file is used, since we rely on managed databases there.
 
 source: https://github.com/fiware-ops/batterypass
-release: ai-marketplace
+release: batterypass
 destination_namespace: &destination batterypass
 branch: &branch main
 secretsEnabled: &secretsEnabled false
