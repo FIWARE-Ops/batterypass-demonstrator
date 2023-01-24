@@ -57,6 +57,8 @@ route:
   tls:
     termination: edge
     insecureEdgeTerminationPolicy: Redirect
+  # configuration for creation of certificates, using cert-manager.
+  certificate: {}
 
 # -- port to make the server available at
 port: 8080
