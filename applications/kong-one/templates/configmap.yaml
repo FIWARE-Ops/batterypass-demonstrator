@@ -24,7 +24,7 @@ data:
           - name: token-helper
             paths:
               - /token
-            strip_path: true
+            strip_path: false
 
         plugins:
           - name: prometheus
