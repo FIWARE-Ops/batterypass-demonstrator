@@ -52,10 +52,10 @@ data:
                   - "authorization"
                   - "Authorization"
               ar:
-                identifier: "EU.EORI.DEBATTERYPASSAR"
-                host: "https://ar.batterypass.fiware.dev"
-                token_endpoint: "https://ar.batterypass.fiware.dev/oauth2/token"
-                delegation_endpoint: "https://ar.batterypass.fiware.dev/ar/delegation"
+                identifier: "EU.EORI.DETHREE"
+                host: "https://idm-three.batterypass.fiware.dev"
+                token_endpoint: "https://idm-three.batterypass.fiware.dev/oauth2/token"
+                delegation_endpoint: "https://idm-three.batterypass.fiware.dev/ar/delegation"
               satellite:
                 identifier: "EU.EORI.DEBATTERYPASSSAT"
                 host: "https://satellite.batterypass.fiware.dev"
