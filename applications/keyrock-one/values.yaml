@@ -29,7 +29,6 @@ keyrock:
         certificate:
           issuer: letsencrypt-aws-prod
 
-
   ## Theme configuration for Keyrock
   theme:
     ## -- Enable theme
