@@ -20,15 +20,16 @@ keyrock:
   
   route:
     enabled: true
-    host: idm-one.batterypass.fiware.dev
-    tls:
-      termination: edge
-      insecureEdgeTerminationPolicy: Redirect
-    # should a certificate for the address automatically be generated
-    certificate:
-      issuer:
-        kind: ClusterIssuer
-        name: letsencrypt-aws-prod
+    routes:
+      - host: idm-one.batterypass.fiware.dev
+        tls:
+          termination: edge
+          insecureEdgeTerminationPolicy: Redirect
+          # should a certificate for the address automatically be generated
+          certificate:
+            issuer:
+              kind: ClusterIssuer
+              name: letsencrypt-aws-prod
 
 
   ## Theme configuration for Keyrock
