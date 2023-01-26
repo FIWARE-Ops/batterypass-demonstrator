@@ -25,9 +25,9 @@ keyrock:
         tls:
           termination: edge
           insecureEdgeTerminationPolicy: Redirect
-          # should a certificate for the address automatically be generated
-          certificate:
-            issuer: letsencrypt-aws-prod
+        # should a certificate for the address automatically be generated
+        certificate:
+          issuer: letsencrypt-aws-prod
 
 
   ## Theme configuration for Keyrock
