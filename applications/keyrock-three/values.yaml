@@ -65,7 +65,7 @@ keyrock:
     # -- Enable storage of local key and certificate
     enabled: true
     # -- Identifier (EORI) of local organisation
-    identifier: "EU.EORI.DEONE"
+    identifier: "EU.EORI.THREE"
     # BE AWARE: The following key and certificate configuration is highly unsecure, since its visible for everyone.
     # Use proper mechanisms to provide secrets, depending on your target environment. In a gitops-approach,
     # f.e. sealed-secrets could be a good solution: https://github.com/FIWARE-Ops/fiware-gitops#7-deploy-bitnamisealed-secrets
@@ -231,7 +231,7 @@ keyrock:
   
   additionalEnvVars:
     - name: IDM_TITLE
-      value: "Batterypass - ONE"
+      value: "Batterypass - Three"
     - name: IDM_DEBUG
       value: "true"
     - name: DEBUG
