@@ -42,7 +42,10 @@ keyrock:
     # -- Identifier (EORI) of AR
     identifier: "EU.EORI.DEBATTERYPASSAR"
     # -- URL of AR
-    url: "internal"
+    url: "https://ar.batterypass.fiware.dev"
+    tokenEndpoint: "https://ar.batterypass.fiware.dev/oauth2/token"
+    # -- Delegation endpoint of AR
+    delegationEndpoint: "https://ar.batterypass.fiware.dev/ar/delegation"
 
   ## Configuration of iSHARE Satellite
   satellite:
