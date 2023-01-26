@@ -15,19 +15,20 @@ keyrock:
 
   existingSecret: keyrock-secret
 
-  host: https://happypets-keyrock.i4trust-demo.fiware.dev
+  host: https://idm-two.batterypass.fiware.dev
   
   route:
     enabled: true
-    host: happypets-keyrock.i4trust-demo.fiware.dev
-    tls:
-      termination: edge
-      insecureEdgeTerminationPolicy: Redirect
-    # should a certificate for the address automatically be generated
-    certificate:
-      issuer:
-        kind: ClusterIssuer
-        name: letsencrypt-aws-prod
+    routes:
+      - host: idm-two.batterypass.fiware.dev
+        tls:
+          termination: edge
+          insecureEdgeTerminationPolicy: Redirect
+        # should a certificate for the address automatically be generated
+        certificate:
+          issuer: 
+            kind: ClusterIssuer
+            name: letsencrypt-aws-prod
 
   ## Theme configuration for Keyrock
   theme:
