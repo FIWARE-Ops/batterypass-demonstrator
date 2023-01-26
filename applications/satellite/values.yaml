@@ -3,6 +3,7 @@ ishare-satellite:
   # BE AWARE: The following key and certificate configuration is highly unsecure, since its visible for everyone.
   # Use proper mechanisms to provide secrets, depending on your target environment. In a gitops-approach,
   # f.e. sealed-secrets could be a good solution: https://github.com/FIWARE-Ops/fiware-gitops#7-deploy-bitnamisealed-secrets
+  # for training-purposes, we use the plain variant here, all certificates are self-signed and not used anywhere outside the demo-env
   config:
     id: EU.EORI.DEBATTERYPASSSAT
     key: |

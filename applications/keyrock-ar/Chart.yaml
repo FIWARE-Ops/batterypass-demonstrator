@@ -1,0 +1,12 @@
+apiVersion: v2
+name: happypets-keyrock
+description: Chart holder for argo-cd
+
+type: application
+version: 0.5.1
+appVersion: "i4trust-rc8"
+
+dependencies:
+  - name: keyrock
+    version: 0.5.1
+    repository: https://fiware.github.io/helm-charts

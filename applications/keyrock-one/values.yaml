@@ -1,0 +1,242 @@
+keyrock:
+  fullnameOverride: keyrock-one
+  statefulset:
+    image:
+      repository: quay.io/fiware/idm
+      tag: i4trust-rc8
+      pullPolicy: IfNotPresent
+
+  db:
+    user: root
+    host: mysql-bp
+
+  admin:
+    user: admin
+    email: admin@fiware.org
+
+  existingSecret: keyrock-secret
+
+  host: https://one.batterypass.fiware.dev/idm
+  
+  route:
+    enabled: false
+
+  ## Theme configuration for Keyrock
+  theme:
+    ## -- Enable theme
+    enabled: false
+
+  ## Configuration of Authorisation Registry (AR)
+  authorisationRegistry:
+    # -- Enable usage of authorisation registry
+    enabled: true
+    # -- Identifier (EORI) of AR
+    identifier: "EU.EORI.DEBATTERYPASSAR"
+    # -- URL of AR
+    url: "https://ar.batterypass.fiware.dev"
+    # -- Token endpoint of AR
+    tokenEndpoint: "https://ar.batterypass.fiware.dev/oauth2/token"
+    # -- Delegation endpoint of AR
+    delegationEndpoint: "https://ar.batterypass.fiware.dev/ar/delegation"
+
+  ## Configuration of iSHARE Satellite
+  satellite:
+    # -- Enable usage of satellite
+    enabled: true
+    # -- Identifier (EORI) of satellite
+    identifier: "EU.EORI.DEBATTERYPASSSAT"
+    # -- URL of satellite
+    url: "https://satellite.batterypass.fiware.dev"
+    # -- Token endpoint of satellite
+    tokenEndpoint: "https://satellite.batterypass.fiware.dev/token"
+    # -- Parties endpoint of satellite
+    partiesEndpoint: "https://satellite.batterypass.fiware.dev/parties"
+
+  ## -- Configuration of local key and certificate for validation and generation of tokens
+  token:
+    # -- Enable storage of local key and certificate
+    enabled: true
+    # -- Identifier (EORI) of local organisation
+    identifier: "EU.EORI.DEONE"
+    # BE AWARE: The following key and certificate configuration is highly unsecure, since its visible for everyone.
+    # Use proper mechanisms to provide secrets, depending on your target environment. In a gitops-approach,
+    # f.e. sealed-secrets could be a good solution: https://github.com/FIWARE-Ops/fiware-gitops#7-deploy-bitnamisealed-secrets
+    # for training-purposes, we use the plain variant here, all certificates are self-signed and not used anywhere outside the demo-env
+    key: |
+      -----BEGIN RSA PRIVATE KEY-----
+      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
+      -----END RSA PRIVATE KEY-----
+    cert: |
+      -----BEGIN CERTIFICATE-----
+      MIIGZzCCBE+gAwIBAgIUIZIDEQS68Mq8CT0HjlJwWIHCtWcwDQYJKoZIhvcNAQEL
+      BQAwejELMAkGA1UEBhMCREUxDzANBgNVBAgMBkJlcmxpbjEfMB0GA1UECgwWRklX
+      QVJFIEZvdW5kYXRpb24gZS5WLjEUMBIGA1UECwwLQmF0dGVyeXBhc3MxIzAhBgNV
+      BAMMGkVVLkVPUkkuREVCQVRURVJZUEFTU0lOVEVSMB4XDTIzMDEyNjA2NTYzNFoX
+      DTI4MDEyNTA2NTYzNFowgZgxCzAJBgNVBAYTAkRFMQ8wDQYDVQQIDAZCZXJsaW4x
+      DzANBgNVBAcMBkJlcmxpbjEYMBYGA1UECgwPQmF0dGVyeXBhc3MgT25lMRYwFAYD
+      VQQDDA1FVS5FT1JJLkRFT05FMR0wGwYJKoZIhvcNAQkBFg5vbmVAZml3YXJlLm9y
+      ZzEWMBQGA1UEBRMNRVUuRU9SSS5ERU9ORTCCAiIwDQYJKoZIhvcNAQEBBQADggIP
+      ADCCAgoCggIBAOFubZvm7pIln81mo3iDohwty7BgjfaEQdtBlm9QwvNVwwJ3p2xe
+      o6dz+oQeYP1Jwsq+g8vis48lnVvztLTFC6pWPGOuY45E8ZTPDSLVZfhwhXzcb6cr
+      E2Pmk4KaKb7oY4/r2SpTgl8G7AyZhsD2MBFvirQfY3TQIxDZ3N9qgtDThIixrH5m
+      8sqF9/iT/NSTC+/8I6rrkzWazb45NViSLR4GyGNcJp8O8lOfUoC0+1jIaSCrpzHp
+      X5NNcJiWotkj+jwfq7TJXm9naBK8+G0tYueVehJXuAK9fPtUGzUikhN7qH07iAqp
+      jzdv1gO5dEQ91glR9Tt4It4wmbmtg/hgcgQ20gehjfECihV2UtwAHYvRH5LMGWGO
+      VVdsWemD6Mf5tauqCq51YvNiJRG8rFnk2hxlAcsgc7s3PzJ0wQBR/q7aNRxnIw29
+      tR2kDH3ub2f1YfUp8eoX9L6exVlOv83Ih16LRDVBk86ttJh7jB/mI6cHJQqw6qEl
+      8yyJLEOwxXAO9oJa6Qlo2WzCNFKH+FLntPU4F6rAVis+WkxRN8bkiPwZEVsKEBox
+      7iBDcdHY+4tlNaZVxsjkd4MIpBoQL4dDHr/NTSUAO6jFpvrUx0Dok+cs57K+sotA
+      Kk8tprfHx2/c3bJlsjtoX8zH3m67EPD5UMAAkEhbVJUvOmqBRjTIOxxfAgMBAAGj
+      gcUwgcIwCQYDVR0TBAIwADARBglghkgBhvhCAQEEBAMCBaAwMwYJYIZIAYb4QgEN
+      BCYWJE9wZW5TU0wgR2VuZXJhdGVkIENsaWVudCBDZXJ0aWZpY2F0ZTAdBgNVHQ4E
+      FgQUfeCMqh6Pvn/JK3b0eCcswswZyPwwHwYDVR0jBBgwFoAUOSANffgZQLajjQlx
+      iAG9B584XO0wDgYDVR0PAQH/BAQDAgXgMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggr
+      BgEFBQcDBDANBgkqhkiG9w0BAQsFAAOCAgEAXAfuvke9siTJ+QJ+fFgAugZM1OXd
+      cXQYFud8LtD4WUCOLViGL8cqsh3hXbWuXEUXQAhMU+PJdTIsG7rql2LzwvGlFfFQ
+      QaG2lrBYQSfjygTY7KvwFhySMkOz1UvWjCGgTSFnVaTtrOCFgONo2edzQGREIer1
+      66JDj26XWgKAgZVt3qGpiYBB6WA19Ydme6GVuDUuoe2vL04cv85nddXySanZNaRj
+      +ZqanJC0gLZoKojo8XW6BXOhkU3fw5lb/chJmAPjLwgl1DW8GBGVuhuJDOvxxtPm
+      5w49f5lAxVctR7GClk1tkQdnhUUnnnyl9JCu+V+S6Smuhj1Hk4jkDkc+xo2SOg72
+      Q7msiBsmV9kR+QKOaro9BlcVKz2YFA48iMsaQUy3SJduOFTsYMxM8f/UVhbSnPsp
+      a2aU8JvKkhHqP3bc2aqiFf5OvsO4FBzySKr0REsP07hU11MHLPT+4LlKZoY+zD4m
+      TT8SXzcT9qhI9ldvLO5bKxRtWya/dXuJ6Qx1K7mPV7B58XAQnhH5OLrPr8dbVD8t
+      jCiRxz3dQOuYw7SRxF/5etofKsye9Y0GeY0TFrF1eIPlt8bFiMV4QSeiHB7uM4LJ
+      tEvzA1GzQkBsrUuSYqLEthmuBmxXQEBNn7a84FG67OpYoy6QirGqv86+F90Cs2s/
+      Xbg8H5UjSTiUArE=
+      -----END CERTIFICATE-----
+      -----BEGIN CERTIFICATE-----
+      MIIF5DCCA8ygAwIBAgIBAjANBgkqhkiG9w0BAQsFADCBiDELMAkGA1UEBhMCREUx
+      DzANBgNVBAgMBkJlcmxpbjEPMA0GA1UEBwwGQmVybGluMR8wHQYDVQQKDBZGSVdB
+      UkUgRm91bmRhdGlvbiBlLlYuMRQwEgYDVQQLDAtCYXR0ZXJ5cGFzczEgMB4GA1UE
+      AwwXRVUuRU9SSS5ERUJBVFRFUllQQVNTQ0EwHhcNMjMwMTI2MDY0OTQ3WhcNMzAw
+      NDI5MDY0OTQ3WjB6MQswCQYDVQQGEwJERTEPMA0GA1UECAwGQmVybGluMR8wHQYD
+      VQQKDBZGSVdBUkUgRm91bmRhdGlvbiBlLlYuMRQwEgYDVQQLDAtCYXR0ZXJ5cGFz
+      czEjMCEGA1UEAwwaRVUuRU9SSS5ERUJBVFRFUllQQVNTSU5URVIwggIiMA0GCSqG
+      SIb3DQEBAQUAA4ICDwAwggIKAoICAQDYzJJkFxTBXygZiKlk0CurHYVxF2pUzvql
+      IqbRoxPvdbpaHRw0Fx06lZQrZP/dAdlBkDEmn8fsrjK9vuAPXG6JdG5KsLcP5fL4
+      BP53UqY7JKpsKvk83qkriahz7cyHzlE4yoynlqy/bfLMGtVrRysn+xOLnKflYrkJ
+      /qrZBXUeeaRYLoiQZCVkA+nFWmDJveXoFeVwtetcGtb4boWxrGHxG6IQx9/IXSIV
+      3uGRYxW3GMIgwB28x7BDdCO0+AcgFlKm2mehZ3FQwfC8exA4Qh1NHDYIUz1IlpvA
+      Yd/S6ISj+zLRxk0eG3DBAYgug+64ayQn7KwzIb2NwDSVJLuC/uG1tglSdxrO2Msv
+      ybww8+XWwgNM1fiO+BPnndP69HG+kTJbXvVyWzSiVjebM9GjruTy/MGi6FySFwU1
+      lXiynoT72bpdOllL3oJe0SY2Auy41ETpJPGg+O/Q/9DzphMo16eSjBH047UgRlTp
+      s6tcd+iydxxA1D6DxNdfkCApiX8aPxkxebg3/y3iZTGze5sGyMcBmjgddtDgpzX+
+      d28RP3y8qOssb4WMGoG7jkBXPFnmzz7JYtEk7KhrKeM59IIHhfkP4b5kf5zrJfVi
+      ID+p22iQhVSGkXU8FwQESjVOSTDEN3xv6Q/UK/3yGKBf2E/NVXAdJfST/KMD7KRk
+      1icThoON2wIDAQABo2YwZDAdBgNVHQ4EFgQUOSANffgZQLajjQlxiAG9B584XO0w
+      HwYDVR0jBBgwFoAUCyTQpHc4RA+Jyy9RN9pKGikUHcAwEgYDVR0TAQH/BAgwBgEB
+      /wIBADAOBgNVHQ8BAf8EBAMCAYYwDQYJKoZIhvcNAQELBQADggIBAALHcn0NC1w9
+      M4W+fcBdMh70WMJ/e+LdkeELrMKqNdQuIBb6kl+k7701CP4eq3qyPYul1U3H5xvD
+      UMkRX0wh7GwfA1Lhc3UsMXxGLExh41yWvEG8GPAaIxMkiKdyckIUiZUm8NeGt/94
+      RuaDOXMBLICN6q9Xhfz2YgQ0WtOQMwypnLvqGTPmdPky2ctGKvQciqxXy74N4/hb
+      YinG8X88NZ2Tk82bLO/X2YZQat/A3U5Nnnwo0vjwJp/M0Tpr1J4n+GxKQG9rqfyP
+      Ra9ByEnwogIYB7z47hkxeY8d2I12s6TmfLvX+PpKuwGhU0Xd6RCZet77texsKbQg
+      yIOSrlPykc6eM6RAZa+cSA8kJA8cPfQN02sVZGpIgN3U575UOnOTEDLL9tFUQVNu
+      ts0WwhVoyrmDdL6BZihmodLfTNRDrVow22bJGFNGUKqxB21pLcjSqkFKCFINoF5b
+      CqVfe3EbCS1Q6PrPs7ApApNKHMxhp/FSpRscECB9qyy2mQ8CrL2YeqV+BmWxOqSA
+      QCofUJnqRrjN+2+pzTd1qZtiwqnSl3KOnK7yOHz+++FZNu02SO2Z6kOjdwVK1+qs
+      NvV2e7rMLMdlqtZ0a0Xl46uy6rQstbr4WvoFHgYpGRMDkjb51GCuhRC1WY+6osXq
+      /rUbTNxHuAF3UdiLSC3mBpMzCeojr0az
+      -----END CERTIFICATE-----
+      -----BEGIN CERTIFICATE-----
+      MIIF8zCCA9ugAwIBAgIUFk5tHQIDoLJ0yGMj5NmfvVTVrSAwDQYJKoZIhvcNAQEL
+      BQAwgYgxCzAJBgNVBAYTAkRFMQ8wDQYDVQQIDAZCZXJsaW4xDzANBgNVBAcMBkJl
+      cmxpbjEfMB0GA1UECgwWRklXQVJFIEZvdW5kYXRpb24gZS5WLjEUMBIGA1UECwwL
+      QmF0dGVyeXBhc3MxIDAeBgNVBAMMF0VVLkVPUkkuREVCQVRURVJZUEFTU0NBMB4X
+      DTIzMDEyNjA2NDgxOFoXDTMzMDEyMzA2NDgxOFowgYgxCzAJBgNVBAYTAkRFMQ8w
+      DQYDVQQIDAZCZXJsaW4xDzANBgNVBAcMBkJlcmxpbjEfMB0GA1UECgwWRklXQVJF
+      IEZvdW5kYXRpb24gZS5WLjEUMBIGA1UECwwLQmF0dGVyeXBhc3MxIDAeBgNVBAMM
+      F0VVLkVPUkkuREVCQVRURVJZUEFTU0NBMIICIjANBgkqhkiG9w0BAQEFAAOCAg8A
+      MIICCgKCAgEAv3NVCmfddX9knGcQeEiIu9mT0RIIIrEx80hmYY+woWZbTfh2fwPW
+      Y24vrcVAdy4M61Onvw/SGKk4LlWtlJXXDZ7P5ZeVsgTkF3DzbdhpfA4zwoWKt0L/
+      Y/yxV5YIMvEsL33IkXRCSytUO5QSNgwP8zBAugqBYNGm3SBSLtPSvAeNficK3hLK
+      ghk5ZKxnnN4OFNP3wCpDTGn09mtZ/xDMnC8nr7sCl27LdOHpfkVSdfcT5sBcI9A7
+      wj/aCpDG8df+de3J7eHRXyurjV5B8XQ9ALdo4iZfSaPykG8IOnDo57VU/pd6/VB5
+      TceCwzqUbWwwb2OhjRmJLR4rhrmyyfHN1HfuaivJyKBYhEF+zonV7aoh15CnKQM5
+      fZ0AYmbT5jj7hHHSviGZUYMcFNvIJqiyJbwlvelmuypOYpQLmh9O8UQMMPGunXRJ
+      9zv8e10xeOtcEka1aAzGfhoSt7GDYDtm5xwya2/0VYYaxM0vflsadf+Zf8N/j6Zd
+      pCu7iUgRsFN06efNcm9UH4A72BQgZv7eBQip9fAtXfjJ45ZENupIn51zqUoNMoem
+      OiqNCcL8cd4fpBaBd5KO4hYmxdCTEi8ETnPr8O8fV8ie0fDFM2qKdls9bToE19M9
+      r/a9VHl0ePO8UEK7RzdUy7R2zoXOYtycAJZv2wGAIlLBKq0bx91QEYMCAwEAAaNT
+      MFEwHQYDVR0OBBYEFAsk0KR3OEQPicsvUTfaShopFB3AMB8GA1UdIwQYMBaAFAsk
+      0KR3OEQPicsvUTfaShopFB3AMA8GA1UdEwEB/wQFMAMBAf8wDQYJKoZIhvcNAQEL
+      BQADggIBAHLO9BD9nu7XyJRqdCe8GJUR2sdAdEfQZ2VjLOk+kAHO/mfUH9cEj+db
+      jlS3utMXhVaXNRIrEzNDPDqGst+9KDfZ7CIDzqKNeLw0KKYgX8TOI3S7GbHxqO/I
+      qnFEzeGK6KmOxofzqa3vuPKUySv8MH7NavwFvy/EqUruo+cZTedvs9QAzneyK3pk
+      wx8HKNFCNCTP48w0x8n2jz3ogqOrC6EcepxSlrRGWmoyBUu/CMTD8Q2T7QnoF2BQ
+      lScfJ24whiPAMswJF7jBMBfdLNplbafzLQCudc6LG7iOfBX8lEx0WETd6pwMItaf
+      Zqg3qm5nAjYFXjOuSOW2oFZ+01WKv3VIJMKHPGLoti3SX1COHEBkLNFz5PzeyfHK
+      oeOVfPwH1wGeK37qvmbHAROCBmVkn6ebrnylxef/U+eT83Efe/LFBs2nuBXBMktc
+      +qQAP5rTzC+yUIks48zeBiCliPqYeLPA2tn3DT02RJD47ufz+zaLrK1IAfDXzYBn
+      nuJov/y4Gw/jjgCLOp8H+Q5PzxuCH5OY41INyo4l9+cfw1rm+2AiajbxYA8rrajt
+      l5xZxU66ududjKTZ6KX6W2o4s0z2i7kjNFJdQEmR2kRzbXkcXPk/5dAbRVMJOQd4
+      oTUhlBGrrdojMmk5+nftXaQ6l/RCitCLlD3MD7EKbRs1sLDXsUMG
+      -----END CERTIFICATE-----
+  
+  additionalEnvVars:
+    - name: IDM_TITLE
+      value: "Batterypass - ONE"
+    - name: IDM_DEBUG
+      value: "true"
+    - name: DEBUG
+      value: "*"
+    - name: IDM_DB_NAME
+      value: bp_one_idm
+    - name: IDM_DB_SEED
+      value: "true"
+    - name: IDM_SERVER_MAX_HEADER_SIZE
+      value: "32768"
+    - name: IDM_EMAIL_HOST
+      value: "mailgun-fiware-io.infra.svc.cluster.local"
+    - name: IDM_EMAIL_PORT
+      value: "25"
+    - name: IDM_EMAIL_ADDRESS
+      value: "bp-one@fiware.io"

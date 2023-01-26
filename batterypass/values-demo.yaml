@@ -154,3 +154,32 @@ applications:
             issuer:
               kind: ClusterIssuer
               name: letsencrypt-aws-prod
+
+  - name: mysql
+    enabled: true
+    source_path: applications/mysql
+    source_ref: *branch
+    destination: *destination
+    purpose: *purpose
+    helm_values:
+    - values.yaml
+
+
+  - name: ar
+    enabled: true
+    source_path: applications/keyrock-ar
+    source_ref: *branch
+    destination: *destination
+    purpose: *purpose
+    helm_values:
+    - values.yaml
+
+
+  - name: keyrock-one
+    enabled: true
+    source_path: applications/keyrock-one
+    source_ref: *branch
+    destination: *destination
+    purpose: *purpose
+    helm_values:
+    - values.yaml
