@@ -182,6 +182,24 @@ applications:
     helm_values:
     - values.yaml
 
+  - name: keyrock-two
+    enabled: true
+    source_path: applications/keyrock-one
+    source_ref: *branch
+    destination: *destination
+    purpose: *purpose
+    helm_values:
+    - values.yaml
+
+  - name: keyrock-three
+    enabled: true
+    source_path: applications/keyrock-one
+    source_ref: *branch
+    destination: *destination
+    purpose: *purpose
+    helm_values:
+    - values.yaml
+
   - name: token-helper
     enabled: true
     source_path: applications/token-helper
