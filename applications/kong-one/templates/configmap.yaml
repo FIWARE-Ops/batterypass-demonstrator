@@ -34,7 +34,7 @@ data:
               hide_credentials: true 
               key_in_header: true 
               key_names:
-                - API_KEY
+                - X-Api-Key
                
           - name: rate-limiting
             config: 
