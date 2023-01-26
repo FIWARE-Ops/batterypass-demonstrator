@@ -47,11 +47,13 @@ kong:
         insecureEdgeTerminationPolicy: Redirect
   
   admin:
+    enabled: true
+    type: LoadBalancer  
     http: 
       enabled: true
       servicePort: 8001
       containerPort: 8001
-      
+
   status:
     enabled: true
     http: 
