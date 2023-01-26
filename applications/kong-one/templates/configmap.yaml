@@ -26,21 +26,3 @@ data:
           - name: rate-limiting
             config: 
               minute: 30
-     
-      - host: "keyrock-one"
-        name: "keyrock-one"
-        port: 8080
-        protocol: http
-
-        routes:
-          - name: keyrock-one
-            paths:
-              - /idm
-            strip_path: true
-
-        plugins:
-          - name: prometheus
-
-          - name: rate-limiting
-            config: 
-              minute: 30

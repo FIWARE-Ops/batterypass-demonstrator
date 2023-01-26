@@ -16,10 +16,20 @@ keyrock:
 
   existingSecret: keyrock-secret
 
-  host: https://one.batterypass.fiware.dev/idm
+  host: https://idm-one.batterypass.fiware.dev
   
   route:
-    enabled: false
+    enabled: true
+    host: idm-one.batterypass.fiware.dev
+    tls:
+      termination: edge
+      insecureEdgeTerminationPolicy: Redirect
+    # should a certificate for the address automatically be generated
+    certificate:
+      issuer:
+        kind: ClusterIssuer
+        name: letsencrypt-aws-prod
+
 
   ## Theme configuration for Keyrock
   theme:
