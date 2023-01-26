@@ -1,0 +1,72 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "ishare-token-helper.fullname" . }}
+  labels:
+    {{ include "ishare-token-helper.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.deployment.replicaCount }}
+  revisionHistoryLimit: {{ .Values.deployment.revisionHistoryLimit }}
+  strategy:
+  {{- with .Values.deployment.updateStrategy }}
+  {{- toYaml . | nindent 4 }}
+  {{- end }}
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: {{ include "ishare-token-helper.name" . }}
+      app.kubernetes.io/instance: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        {{ include "ishare-token-helper.labels" . | nindent 8 }}
+        {{- with .Values.deployment.additionalLabels }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+      annotations:
+        checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
+        {{- with .Values.deployment.additionalAnnotations }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+    spec: 
+      serviceAccountName: {{ include "ishare-token-helper.serviceAccountName" . }}
+      containers:
+        - name: {{ .Chart.Name }}
+          imagePullPolicy: {{ .Values.deployment.image.pullPolicy }}
+          image: "{{ .Values.deployment.image.repository }}:{{ .Values.deployment.image.tag }}"
+          ports:
+            - name: http
+              containerPort: {{ .Values.satellite.port }}
+              protocol: TCP
+          env:
+            - name: RUN_SERVER
+              value: "true"
+          volumeMounts:
+            - name: config-yaml
+              mountPath: /config.yaml
+              subPath: config.yaml
+            - name: certificates
+              mountPath: /certs
+          resources:
+            {{- toYaml .Values.deployment.resources | nindent 12 }}
+      volumes:
+        - name: config-yaml
+          configMap:
+            name: {{ include "ishare-token-helper.name" . }}
+            items:
+              - key: config.yaml
+                path: config.yaml
+        - name: certificates
+          configMap:
+            name: {{ include "ishare-token-helper.name" . }}-certs
+      {{- with .Values.deployment.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.deployment.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.deployment.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

@@ -1,0 +1,17 @@
+apiVersion: v2
+name: ishare-token-helper
+version: 0.0.1
+appVersion: 0.3.0
+home: https://github.com/wistefan/ishare-jwt-helper
+description: A Helm chart for running the token helper tool
+icon: https://fiware.github.io/catalogue/img/fiware.png
+keywords:
+- fiware
+- i4trust
+- ishare
+- jwt
+sources:
+- https://github.com/wistefan/ishare-jwt-helper
+maintainers:
+- name: wistefan
+  email: stefan.wiedemann@fiware.org
