@@ -27,7 +27,9 @@ keyrock:
           insecureEdgeTerminationPolicy: Redirect
         # should a certificate for the address automatically be generated
         certificate:
-          issuer: letsencrypt-aws-prod
+          issuer: 
+            kind: ClusterIssuer
+            name: letsencrypt-aws-prod
 
   ## Theme configuration for Keyrock
   theme:
