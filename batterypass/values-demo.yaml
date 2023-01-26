@@ -184,7 +184,7 @@ applications:
 
   - name: keyrock-two
     enabled: true
-    source_path: applications/keyrock-one
+    source_path: applications/keyrock-two
     source_ref: *branch
     destination: *destination
     purpose: *purpose
@@ -193,7 +193,7 @@ applications:
 
   - name: keyrock-three
     enabled: true
-    source_path: applications/keyrock-one
+    source_path: applications/keyrock-three
     source_ref: *branch
     destination: *destination
     purpose: *purpose
