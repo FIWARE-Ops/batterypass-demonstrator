@@ -5,7 +5,7 @@
 # -- option to override the name config in the _helpers.tpl
 nameOverride: ""
 # -- option to override the fullname config in the _helpers.tpl
-fullnameOverride: ""
+fullnameOverride: "token-helper"
 
 ## configuration for the k8s service to access the satellite
 service:
