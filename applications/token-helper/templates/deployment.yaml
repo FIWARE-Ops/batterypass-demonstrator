@@ -35,7 +35,7 @@ spec:
           image: "{{ .Values.deployment.image.repository }}:{{ .Values.deployment.image.tag }}"
           ports:
             - name: http
-              containerPort: {{ .Values.satellite.port }}
+              containerPort: {{ .Values.service.port }}
               protocol: TCP
           env:
             - name: RUN_SERVER
