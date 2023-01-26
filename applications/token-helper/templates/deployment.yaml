@@ -51,13 +51,13 @@ spec:
       volumes:
         - name: config-yaml
           configMap:
-            name: {{ include "ishare-token-helper.name" . }}
+            name: {{ include "ishare-token-helper.fullname" . }}
             items:
               - key: config.yaml
                 path: config.yaml
         - name: certificates
           configMap:
-            name: {{ include "ishare-token-helper.name" . }}-certs
+            name: {{ include "ishare-token-helper.fullname" . }}-certs
       {{- with .Values.deployment.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
