@@ -132,4 +132,25 @@ applications:
           issuer:
             kind: ClusterIssuer
             name: letsencrypt-aws-prod
-  
+
+  - name: satellite
+    enabled: true
+    source_path: applications/satellite
+    source_ref: *branch
+    destination: *destination
+    purpose: *purpose
+    helm_values:
+    - values.yaml
+    values:
+      ishare-satellite:
+        route:
+          enabled: true
+          host: satellite.batterypass.fiware.dev
+          tls:
+            termination: edge
+            insecureEdgeTerminationPolicy: Redirect
+          # should a certificate for the address automatically be generated
+          certificate:
+            issuer:
+              kind: ClusterIssuer
+              name: letsencrypt-aws-prod
