@@ -46,6 +46,12 @@ kong:
         termination: edge
         insecureEdgeTerminationPolicy: Redirect
   
+  admin:
+    http: 
+      enabled: true
+      servicePort: 8001
+      containerPort: 8001
+      
   status:
     enabled: true
     http: 
