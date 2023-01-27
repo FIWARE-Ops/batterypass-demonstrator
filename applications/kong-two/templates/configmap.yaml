@@ -8,7 +8,32 @@ data:
     _transform: true
 
     services:
-     
+
+      - host: "orion-ld-two"
+        name: "orion-keyrock"
+        port: 1026
+        protocol: http
+        routes:
+          - name: orion-keyrock
+            paths:
+              - /keyrock
+            strip_path: true
+        plugins:
+          - name: pep-plugin
+            config:
+              pathprefix: "/keyrock"
+              authorizationendpointtype: Keyrock
+              authorizationendpointaddress: http://keyrock-two/user
+              keyrockappid: 17478fd8-c1ac-4035-a309-ccaf3057815d
+              decisioncacheexpiryins: "10"
+
+          - name: request-transformer
+            config:
+              remove:
+                headers:
+                  - Authorization
+                  - authorization
+                  
       - host: "orion-ld-two"
         name: "orion-ld"
         port: 1026
