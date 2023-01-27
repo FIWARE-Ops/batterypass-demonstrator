@@ -59,6 +59,31 @@ data:
               minute: 30
 
       - host: "orion-ld-one"
+        name: "orion-keyrock"
+        port: 1026
+        protocol: http
+        routes:
+          - name: orion-keyrock
+            paths:
+              - /keyrock
+            strip_path: true
+        plugins:
+          - name: pep-plugin
+            config:
+              pathprefix: "/keyrock"
+              authorizationendpointtype: Keyrock
+              authorizationendpointaddress: http://keyrock-one/user
+              keyrockappid: f4e7ea41-53b1-40ce-a0ef-d11be5d33bca
+              decisioncacheexpiryins: "10"
+
+          - name: request-transformer
+            config:
+              remove:
+                headers:
+                  - Authorization
+                  - authorization
+
+      - host: "orion-ld-one"
         name: "i4trust-orion-ld"
         port: 1026
         protocol: http

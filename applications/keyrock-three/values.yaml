@@ -234,7 +234,7 @@ keyrock:
     - name: DEBUG
       value: "*"
     - name: IDM_DB_NAME
-      value: bp_one_idm
+      value: bp_three_idm
     - name: IDM_DB_SEED
       value: "true"
     - name: IDM_SERVER_MAX_HEADER_SIZE
