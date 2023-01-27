@@ -22,9 +22,9 @@ The following diagramm shows the components:
 
 In order to participate in the DataSpace, the participants have to provide certain endpoints:
 
-* an NGSI-LD Api serving the data -> provided via Kong at <NAME>.batterypass.fiware.dev/i4trust
-* a [token-endpoint](https://dev.ishare.eu/common/token.html) to exchange the [iShare-compliant JWT](https://dev.ishare.eu/introduction/jwt.html) into an access-token -> provided by Keyrock at idm-<NAME>.batterypass.fiware.dev/oauth2/token
-* a [delegation-endpoint](https://dev.ishare.eu/delegation/endpoint.html) to be used by Kong for policy evaluation -> provided by Keyrcok at idm-<NAME>.batterypass.fiware.dev/ar/delegation
+* an NGSI-LD Api serving the data -> provided via Kong at '<NAME>'.batterypass.fiware.dev/i4trust
+* a [token-endpoint](https://dev.ishare.eu/common/token.html) to exchange the [iShare-compliant JWT](https://dev.ishare.eu/introduction/jwt.html) into an access-token -> provided by Keyrock at idm-'<NAME>'.batterypass.fiware.dev/oauth2/token
+* a [delegation-endpoint](https://dev.ishare.eu/delegation/endpoint.html) to be used by Kong for policy evaluation -> provided by Keyrcok at idm-'<NAME>'.batterypass.fiware.dev/ar/delegation
 * a [trusted-list endpoint](https://dev.ishare.eu/scheme-owner/trusted-list.html) as the central trust anchor -> provided by the [satellite](./applications/satellite/) at satellite.batterypass.fiware.dev/trusted_list
 * a [parties endpoint](https://dev.ishare.eu/scheme-owner/parties.html) for information about the trusted parties -> provided by the [satellite](./applications/satellite/) at satellite.batterypass.fiware.dev/parties
 
