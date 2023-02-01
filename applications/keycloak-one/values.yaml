@@ -21,8 +21,8 @@ realm:
 keycloak:
   replicaCount: 1
   auth:
-    username: fiwareAdmin
-    password: fiwareAdmin
+    adminUser: fiwareAdmin
+    adminPassword: fiwareAdmin
   serviceAccount:
     create: true
   rbac:
