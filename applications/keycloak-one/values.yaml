@@ -80,12 +80,9 @@ keycloak:
     - name: add-vc-issuer
       image: quay.io/fiware/keycloak-vc-issuer:0.0.1-pre-4
       imagePullPolicy: Always
-      env:
-        - name: TARGET_FOLDER
-          value: /opt/bitnami/keycloak/providers/vc-issuer.jar
       volumeMounts:
         - name: providers
-          mountPath: /opt/bitnami/keycloak/providers
+          mountPath: /target
   
   postgresql:
     enabled: false
