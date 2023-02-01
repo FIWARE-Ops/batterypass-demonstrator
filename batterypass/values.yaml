@@ -154,7 +154,7 @@ applications:
 
   - name: waltid-one
     enabled: true
-    source_path: applications/keycloak-one
+    source_path: applications/waltid-one
     source_ref: *branch
     destination: *destination
     purpose: *purpose
