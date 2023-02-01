@@ -12,7 +12,7 @@ data:
       "displayNameHtml": "<div class=\"kc-logo-text\"><span>Keycloak</span></div>",
       "enabled": true,
       "attributes": {
-        "frontendUrl": "http://keycloak:80"
+        "frontendUrl": "https://kc-one.batterypass.fiware.dev"
       },
       "sslRequired": "none",
       "roles": {
