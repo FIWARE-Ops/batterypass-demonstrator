@@ -1,0 +1,18 @@
+postgresql:
+  fullnameOverride: postgresql
+  auth:
+    existingSecret: postgres-secret
+    secretKeys:
+      adminPasswordKey: postgres-root-password
+      userPasswordKey: postgres-password
+  rbac:
+    create: true
+    rules:
+      - apiGroups:
+        - security.openshift.io
+        resourceNames:
+        - anyuid
+        resources:
+        - securitycontextconstraints
+        verbs:
+        - use    
