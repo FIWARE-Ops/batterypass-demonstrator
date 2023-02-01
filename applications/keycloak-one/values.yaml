@@ -80,3 +80,16 @@ keycloak:
       volumeMounts:
         - name: providers
           mountPath: /opt/bitnami/keycloak/providers
+  
+  postgresql:
+    rbac:
+      create: true
+      rules:
+        - apiGroups:
+          - security.openshift.io
+          resourceNames:
+          - anyuid
+          resources:
+          - securitycontextconstraints
+          verbs:
+          - use
