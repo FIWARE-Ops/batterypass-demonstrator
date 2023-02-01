@@ -1,6 +1,8 @@
 postgresql:
   fullnameOverride: postgresql
   auth:
+    username: keycloak  
+    enablePostgresUser: true
     existingSecret: postgres-secret
     secretKeys:
       adminPasswordKey: postgres-root-password
