@@ -82,7 +82,7 @@ keycloak:
       imagePullPolicy: Always
       env:
         - name: TARGET_FOLDER
-          value: /opt/bitnami/keycloak/providers
+          value: /opt/bitnami/keycloak/providers/vc-issuer.jar
       volumeMounts:
         - name: providers
           mountPath: /opt/bitnami/keycloak/providers
