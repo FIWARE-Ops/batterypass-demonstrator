@@ -107,3 +107,13 @@ keycloak:
           - securitycontextconstraints
           verbs:
           - use
+    primary:
+      podSecurityContext:
+        enabled: false
+      containerSecurityContext: 
+        enabled: false
+    readReplicas:
+      podSecurityContext:
+        enabled: false
+      containerSecurityContext: 
+        enabled: false
