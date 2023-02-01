@@ -41,7 +41,10 @@ keycloak:
   keycloakConfigCli:
     enabled: true
     # current image does not contain 20.0.3., thus we need this fix
-    command: java -jar /opt/bitnami/keycloak-config-cli/keycloak-config-cli-20.0.1.jar
+    command: 
+      - java
+      - -jar
+      - /opt/bitnami/keycloak-config-cli/keycloak-config-cli-20.0.1.jar
 
     extraEnvVars:
       - name: IMPORT_FILES_LOCATIONS
