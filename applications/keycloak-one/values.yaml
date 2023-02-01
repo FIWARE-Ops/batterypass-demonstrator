@@ -63,7 +63,7 @@ keycloak:
   - name: VCISSUER_ISSUER_DID
     value: "did:test:test"
   - name: VCISSUER_WALTID_ADDRESS
-    value: "http://waltid-one-vcwaltid"
+    value: "http://waltid-one-vcwaltid:6001/v1/credentials/issue"
 
   extraVolumeMounts:
     - name: profiles
