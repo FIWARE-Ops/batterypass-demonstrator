@@ -82,6 +82,8 @@ keycloak:
           mountPath: /opt/bitnami/keycloak/providers
   
   postgresql:
+    serviceAccount:
+      create: true
     rbac:
       create: true
       rules:
