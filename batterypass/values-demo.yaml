@@ -164,15 +164,6 @@ applications:
     helm_values:
     - values.yaml
 
-  - name: ar
-    enabled: true
-    source_path: applications/keyrock-ar
-    source_ref: *branch
-    destination: *destination
-    purpose: *purpose
-    helm_values:
-    - values.yaml
-
   - name: keyrock-one
     enabled: true
     source_path: applications/keyrock-one

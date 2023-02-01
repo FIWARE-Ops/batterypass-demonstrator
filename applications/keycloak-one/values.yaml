@@ -36,9 +36,7 @@ keycloak:
         - securitycontextconstraints
         verbs:
         - use
-  
-  shmVolume:
-    enabled: false
+
   
   keycloakConfigCli:
     enabled: true
