@@ -3,10 +3,10 @@ name: vcverifier
 description: Chart holder for argo-cd
 
 type: application
-version: 0.0.1
+version: 0.0.2
 appVersion: "0.0.1"
 
 dependencies:
   - name: vcverifier
-    version: 0.0.1
+    version: 0.0.2
     repository: https://i4Trust.github.io/helm-charts
