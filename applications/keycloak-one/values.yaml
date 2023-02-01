@@ -88,6 +88,11 @@ keycloak:
           mountPath: /opt/bitnami/keycloak/providers
   
   postgresql:
+    auth:
+      postgresPassword: bn_keycloak  
+      username: bn_keycloak
+      password: bn_keycloak
+      database: bitnami_keycloak
     serviceAccount:
       create: true
     rbac:
