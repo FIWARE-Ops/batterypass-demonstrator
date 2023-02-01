@@ -21,8 +21,8 @@ realm:
 keycloak:
   replicaCount: 1
   auth:
-    adminUser: fiwareAdmin
-    adminPassword: fiwareAdmin
+    username: fiwareAdmin
+    password: fiwareAdmin
   serviceAccount:
     create: true
   rbac:
@@ -36,6 +36,9 @@ keycloak:
         - securitycontextconstraints
         verbs:
         - use
+  
+  shmVolume:
+    enabled: false
   
   keycloakConfigCli:
     enabled: true
