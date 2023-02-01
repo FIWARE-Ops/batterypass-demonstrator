@@ -88,34 +88,11 @@ keycloak:
    #       mountPath: /opt/bitnami/keycloak/providers
   
   postgresql:
-    auth:
-      enablePostgresUser: true
-      postgresPassword: "bn_keycloak"  
-      username: "bn_keycloak"
-      password: "bn_keycloak"
-      database: "bitnami_keycloak"
-    serviceAccount:
-      create: true
-    rbac:
-      create: true
-      rules:
-        - apiGroups:
-          - security.openshift.io
-          resourceNames:
-          - anyuid
-          resources:
-          - securitycontextconstraints
-          verbs:
-          - use
-    primary:
-      podSecurityContext:
-        enabled: false
-      containerSecurityContext: 
-        enabled: false
-    readReplicas:
-      podSecurityContext:
-        enabled: false
-      containerSecurityContext: 
-        enabled: false
-    volumePermissions:
-      enabled: true
+    enabled: false
+
+  externalDatabase:
+    host: postgresql
+    user: keycloak
+    database: keycloak-one
+    existingSecret: postgres-secret
+    existingSecretPasswordKey: postgres-password
