@@ -1,0 +1,103 @@
+route:
+  enabled: true
+  host: kc-one.batterypass.fiware.dev
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  certificate:
+    issuer:
+      kind: ClusterIssuer
+      name: letsencrypt-aws-prod
+  
+realm:
+  orionPep:
+    baseUrl: https://orion-ld
+    adminUrl: https://orion-ld
+    redirectUris:
+      - https://orion-ld/
+    webOrigins:
+      - https://orion-ld/
+
+keycloak:
+  replicaCount: 1
+  auth:
+    adminUser: fiwareAdmin
+    adminPassword: fiwareAdmin
+  serviceAccount:
+    create: true
+  rbac:
+    create: true
+    rules:
+      - apiGroups:
+        - security.openshift.io
+        resourceNames:
+        - anyuid
+        resources:
+        - securitycontextconstraints
+        verbs:
+        - use
+  
+  keycloakConfigCli:
+    enabled: true
+    extraEnvVars:
+      - name: IMPORT_FILES_LOCATIONS
+        value: "/config/*"
+    containerSecurityContext:
+      enabled: false
+    podSecurityContext:
+      enabled: false
+    existingConfigmap: keycloak-realm
+  
+  extraEnvVars:
+  - name: KEYCLOAK_PROXY_ADDRESS_FORWARDING
+    value: "true"
+  - name: KEYCLOAK_LOG_LEVEL
+    value: INFO
+  
+  extraVolumeMounts:
+    - name: profiles
+      mountPath: /opt/bitnami/keycloak/conf/profile.properties
+      subPath: profile.properties
+    - name: providers
+      mountPath: /opt/bitnami/keycloak/providers/
+
+  extraVolumes:
+    - name: profiles
+      configMap:
+        name: keycloak-profile
+    - name: providers
+      emptyDir: {}
+
+
+  initContainers:
+    - name: add-vc-issuer
+      image: quay.io/fiware/keycloak-vc-issuer:0.0.1-pre-4
+      imagePullPolicy: Always
+      env:
+        - name: TARGET_FOLDER
+          value: /opt/bitnami/keycloak/providers
+      volumeMounts:
+        - name: providers
+          mountPath: /opt/bitnami/keycloak/providers
+
+  postgresql:
+    auth:
+      username: bn_keycloak
+      password: secretpassword
+      replicationPassword: secretreplicationpassword
+    primary:
+      podSecurityContext:
+        enabled: false
+      containerSecurityContext:
+        enabled: false
+    architecture: replication
+    readReplicas:
+      replicaCount: 1
+      podSecurityContext:
+        enabled: false
+      containerSecurityContext:
+        enabled: false
+    audit:
+      clientMinMessages: warning
+    metrics:
+      enabled: false

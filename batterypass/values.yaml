@@ -97,3 +97,66 @@ applications:
     purpose: *purpose
     helm_values:
     - values.yaml
+
+  - name: mysql
+    enabled: true
+    source_path: applications/mysql
+    source_ref: *branch
+    destination: *destination
+    purpose: *purpose
+    helm_values:
+    - values.yaml
+
+  - name: ar
+    enabled: true
+    source_path: applications/keyrock-ar
+    source_ref: *branch
+    destination: *destination
+    purpose: *purpose
+    helm_values:
+    - values.yaml
+
+  - name: keyrock-one
+    enabled: true
+    source_path: applications/keyrock-one
+    source_ref: *branch
+    destination: *destination
+    purpose: *purpose
+    helm_values:
+    - values.yaml
+
+  - name: keyrock-two
+    enabled: true
+    source_path: applications/keyrock-two
+    source_ref: *branch
+    destination: *destination
+    purpose: *purpose
+    helm_values:
+    - values.yaml
+
+  - name: keyrock-three
+    enabled: true
+    source_path: applications/keyrock-three
+    source_ref: *branch
+    destination: *destination
+    purpose: *purpose
+    helm_values:
+    - values.yaml
+
+  - name: token-helper
+    enabled: true
+    source_path: applications/token-helper
+    source_ref: *branch
+    destination: *destination
+    purpose: *purpose
+    helm_values:
+    - values.yaml
+
+  - name: keycloak-one
+    enabled: true
+    source_path: applications/keycloak-one
+    source_ref: *branch
+    destination: *destination
+    purpose: *purpose
+    helm_values:
+    - values.yaml
