@@ -92,7 +92,7 @@ keycloak:
 
   externalDatabase:
     host: postgresql
-    user: keycloak
+    user: postgres
     database: keycloak-one
     existingSecret: postgres-secret
     existingSecretPasswordKey: postgres-password
