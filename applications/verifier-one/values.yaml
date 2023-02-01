@@ -1,0 +1,11 @@
+vcverifier:
+  deployment:
+    protectedResource: https://one.batterypass.fiware.dev/vc/ngsi-ld/v1/entities?type=DELIVERYORDER
+    walt:
+      coreUrl: http://fiware-vcwaltid:7000
+      signatoryUrl: http://fiware-vcwaltid:7001
+      auditorUrl: http://fiware-vcwaltid:7002
+      custodianUrl: http://fiware-vcwaltid:7003
+      essifUrl: http://fiware-vcwaltid:7010
+  route:
+    enabled: true

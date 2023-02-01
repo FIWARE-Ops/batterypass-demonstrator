@@ -1,0 +1,12 @@
+vcwaltid:
+  api:
+    core: 
+      enabled: true
+    auditor: 
+      enabled: true
+    signatory: 
+      enabled: true
+    custodian: 
+      enabled: true
+    essif: 
+      enabled: true
