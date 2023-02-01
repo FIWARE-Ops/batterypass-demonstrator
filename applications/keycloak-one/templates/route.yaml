@@ -6,13 +6,11 @@ metadata:
   name: {{ include "keycloak.fullname" . }}
   labels:
     {{ include "keycloak.labels" . | nindent 4 }}
-  {{- if .Values.route.annotations }}
   annotations:
     cert-utils-operator.redhat-cop.io/certs-from-secret: {{ include "keycloak.fullname" . }}-tls-sec
     {{- with .Values.route.annotations }}
       {{- toYaml . | nindent 4 }}
       {{- end }}
-  {{- end }}
 spec:
   host: {{ .Values.route.host}}
   to:
