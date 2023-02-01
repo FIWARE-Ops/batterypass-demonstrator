@@ -18,3 +18,11 @@ postgresql:
         - securitycontextconstraints
         verbs:
         - use    
+  primary:
+    initdb:
+      scripts:
+        create: |
+          psql postgresql://postgres:${POSTGRES_PASSWORD}@localhost:5432 -c "CREATE DATABASE keycloak-one;"
+          psql postgresql://postgres:${POSTGRES_PASSWORD}@localhost:5432 -c "CREATE DATABASE keycloak-two;"
+          psql postgresql://postgres:${POSTGRES_PASSWORD}@localhost:5432 -c "CREATE DATABASE keycloak-three;"
+
