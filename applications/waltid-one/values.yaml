@@ -1,4 +1,7 @@
 vcwaltid:
+  deployment:
+    image:  
+      tag: latest
   api:
     core: 
       enabled: true
