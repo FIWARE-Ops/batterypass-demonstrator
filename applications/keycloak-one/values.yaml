@@ -19,6 +19,7 @@ realm:
       - https://orion-ld/
 
 keycloak:
+  logging: DEBUG
   replicaCount: 1
   auth:
     adminUser: fiwareAdmin
