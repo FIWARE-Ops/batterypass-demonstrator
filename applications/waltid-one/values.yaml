@@ -20,7 +20,7 @@ vcwaltid:
       {
         "@context": ["https://www.w3.org/2018/credentials/v1"],
         "credentialSchema": {
-          "id": "https://raw.githubusercontent.com/batterypass/schema.json",
+          "id": "https://raw.githubusercontent.com/FIWARE-Ops/batterypass-demonstrator/main/docs/schema.json",
           "type": "FullJsonSchemaValidator2021"
         },
         "credentialSubject": {
