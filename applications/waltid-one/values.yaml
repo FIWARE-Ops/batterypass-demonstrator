@@ -12,7 +12,7 @@ vcwaltid:
       enabled: true
 
   templates:
-    BatteryPassCredential.json: |
+    BatteryPassAuthCredential.json: |
       {
         "@context": ["https://www.w3.org/2018/credentials/v1"],
         "credentialSchema": {
@@ -33,5 +33,5 @@ vcwaltid:
         "issuer": "did:ebsi:2A9BZ9SUe6BatacSpvs1V5CdjHvLpQ7bEsi2Jb6LdHKnQxaN",
         "validFrom": "2021-08-31T00:00:00Z",
         "issuanceDate": "2021-08-31T00:00:00Z",
-        "type": ["VerifiableCredential", "BatteryPassCredential"]
+        "type": ["VerifiableCredential", "BatteryPassAuthCredential"]
       }
