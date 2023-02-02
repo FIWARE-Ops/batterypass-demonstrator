@@ -1,6 +1,8 @@
 dsba-pdp:
   db: 
     enabled: false
+    migrate:
+      enabled: false
   deployment:
     image:  
       pullPolicy: Always
