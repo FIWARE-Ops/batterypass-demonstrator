@@ -60,7 +60,7 @@ keycloak:
   - name: KEYCLOAK_PROXY_ADDRESS_FORWARDING
     value: "true"
   - name: KEYCLOAK_LOG_LEVEL
-    value: INFO
+    value: DEBUG
   - name: VCISSUER_WALTID_ADDRESS
     value: "http://waltid-one-vcwaltid"
 
