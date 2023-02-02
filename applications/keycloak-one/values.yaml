@@ -60,10 +60,8 @@ keycloak:
     value: "true"
   - name: KEYCLOAK_LOG_LEVEL
     value: INFO
-  - name: VCISSUER_ISSUER_DID
-    value: "did:test:test"
   - name: VCISSUER_WALTID_ADDRESS
-    value: "http://waltid-one-vcwaltid:7001/v1/credentials/issue"
+    value: "http://waltid-one-vcwaltid"
 
   extraVolumeMounts:
     - name: profiles
