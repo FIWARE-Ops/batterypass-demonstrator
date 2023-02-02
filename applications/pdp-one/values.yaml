@@ -8,7 +8,7 @@ dsba-pdp:
       pullPolicy: Always
       repository: quay.io/fiware/dsba-pdp 
       tag: 0.3.2
-    logLevel: INFO
+    logLevel: DEBUG
     ishare:
       certificate: |
         -----BEGIN CERTIFICATE-----
