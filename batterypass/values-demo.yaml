@@ -236,4 +236,14 @@ applications:
     helm_values:
     - values.yaml
 
+  - name: pdp-one
+    enabled: true
+    source_path: applications/pdp-one
+    source_ref: *branch
+    destination: *destination
+    purpose: *purpose
+    helm_values:
+    - values.yaml
+
+
 
