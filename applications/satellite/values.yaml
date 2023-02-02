@@ -1,5 +1,17 @@
 ishare-satellite:
 
+  route: 
+    enabled: true
+    host: idm-one.batterypass.fiware.dev
+    tls:
+      termination: edge
+      insecureEdgeTerminationPolicy: Redirect
+    # should a certificate for the address automatically be generated
+    certificate:
+      issuer: 
+        kind: ClusterIssuer
+        name: letsencrypt-aws-prod
+
   # BE AWARE: The following key and certificate configuration is highly unsecure, since its visible for everyone.
   # Use proper mechanisms to provide secrets, depending on your target environment. In a gitops-approach,
   # f.e. sealed-secrets could be a good solution: https://github.com/FIWARE-Ops/fiware-gitops#7-deploy-bitnamisealed-secrets
