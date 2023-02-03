@@ -62,8 +62,8 @@ keycloak:
     value: "true"
   - name: KEYCLOAK_LOG_LEVEL
     value: DEBUG
-  #- name: VCISSUER_ISSUER_DID
- #   value: "did:key:z6MkoGuq2weWn4XqQrPPhdmXht7fj8EMiK3qJueEKfJUq3uH"
+  - name: VCISSUER_ISSUER_DID
+    value: "did:key:z6Mkp7DVYuruxmKxsy2Rb3kMnfHgZZpbWYnY9rodvVfky7uj"
   - name: VCISSUER_WALTID_ADDRESS
     value: "http://waltid-two-vcwaltid"
 
