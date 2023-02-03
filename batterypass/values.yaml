@@ -199,7 +199,7 @@ applications:
 
   - name: verifier-two
     enabled: true
-    source_path: applications/verifier-one
+    source_path: applications/verifier-two
     source_ref: *branch
     destination: *destination
     purpose: *purpose
@@ -208,12 +208,13 @@ applications:
 
   - name: verifier-three
     enabled: true
-    source_path: applications/verifier-one
+    source_path: applications/verifier-three
     source_ref: *branch
     destination: *destination
     purpose: *purpose
     helm_values:
     - values.yaml
+
 
   - name: pdp-one
     enabled: true
