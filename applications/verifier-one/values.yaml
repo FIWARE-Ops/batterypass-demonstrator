@@ -2,6 +2,7 @@ vcverifier:
   deployment:
     image:
       tag: 0.0.3-pre-3
+      pullPolicy: Always
     protectedResource: https://one.batterypass.fiware.dev/vc/ngsi-ld/v1/entities?type=BATTERY
     walt:
       coreUrl: http://waltid-one-vcwaltid:7000
