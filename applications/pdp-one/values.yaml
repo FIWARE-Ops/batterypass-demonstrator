@@ -189,4 +189,4 @@ dsba-pdp:
     trustedVerifiers:
       - https://verifier-one.batterypass.fiware.dev/verifier/.well-known/jwks
 
-    providerId: "EU.EORI.DEONE"
+    providerId: "did:key:z6Mkv4Lh9zBTPLoFhLHHMFJA7YAeVw5HFYZV8rkdfY9fNtm3"
