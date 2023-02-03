@@ -77,7 +77,7 @@ keycloak:
   extraVolumes:
     - name: profiles
       configMap:
-        name: keycloak-profile
+        name: keycloak-one-profile
     - name: providers
       emptyDir: {}
 
