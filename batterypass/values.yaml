@@ -169,6 +169,24 @@ applications:
     purpose: *purpose
     helm_values:
     - values.yaml
+    
+  - name: waltid-two
+    enabled: true
+    source_path: applications/waltid-two
+    source_ref: *branch
+    destination: *destination
+    purpose: *purpose
+    helm_values:
+    - values.yaml
+
+  - name: waltid-three
+    enabled: true
+    source_path: applications/waltid-three
+    source_ref: *branch
+    destination: *destination
+    purpose: *purpose
+    helm_values:
+    - values.yaml
 
   - name: verifier-one
     enabled: true
