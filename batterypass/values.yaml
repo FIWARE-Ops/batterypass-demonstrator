@@ -161,6 +161,15 @@ applications:
     helm_values:
     - values.yaml
 
+  - name: keycloak-two
+    enabled: true
+    source_path: applications/keycloak-two
+    source_ref: *branch
+    destination: *destination
+    purpose: *purpose
+    helm_values:
+    - values.yaml
+
   - name: waltid-one
     enabled: true
     source_path: applications/waltid-one
