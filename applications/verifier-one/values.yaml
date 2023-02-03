@@ -2,7 +2,7 @@ vcverifier:
   deployment:
     image:
       tag: 0.0.2-pre-2
-    protectedResource: https://one.batterypass.fiware.dev/vc/ngsi-ld/v1/entities?type=DELIVERYORDER
+    protectedResource: https://one.batterypass.fiware.dev/vc/ngsi-ld/v1/entities?type=BATTERY
     walt:
       coreUrl: http://waltid-one-vcwaltid:7000
       signatoryUrl: http://waltid-one-vcwaltid:7001

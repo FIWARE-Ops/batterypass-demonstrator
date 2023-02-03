@@ -1,0 +1,22 @@
+vcverifier:
+  deployment:
+    image:
+      tag: 0.0.2-pre-2
+    protectedResource: https://two.batterypass.fiware.dev/vc/ngsi-ld/v1/entities?type=BATTERY
+    walt:
+      coreUrl: http://waltid-two-vcwaltid:7000
+      signatoryUrl: http://waltid-two-vcwaltid:7001
+      auditorUrl: http://waltid-two-vcwaltid:7002
+      custodianUrl: http://waltid-two-vcwaltid:7003
+      essifUrl: http://waltid-two-vcwaltid:7010
+  route:
+    enabled: true
+    host: verifier-two.batterypass.fiware.dev
+    tls:
+      insecureEdgeTerminationPolicy: Redirect
+      termination: edge
+    certificate:
+      issuer:
+        kind: ClusterIssuer
+        name: letsencrypt-aws-prod
+  
