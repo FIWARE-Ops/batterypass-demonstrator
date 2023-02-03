@@ -27,6 +27,18 @@ data:
           }
         ],
         "client": {
+          "did:key:z6Mkv4Lh9zBTPLoFhLHHMFJA7YAeVw5HFYZV8rkdfY9fNtm3": [
+            {
+              "name": "BATTERY_VIEWER",
+              "description": "Is allowed to view batteries",
+              "clientRole": true
+            },
+            {
+              "name": "BATTERY_VIEWER_SOC",
+              "description": "Is allowed to just view the SoC ofbatteries",
+              "clientRole": true
+            }
+          ],
           "orion-pep": [
             {
               "name": "admin",
@@ -71,16 +83,19 @@ data:
       ],
       "users": [
         {
-          "username": "admin-user",
+          "username": "battery-user",
           "enabled": true,
-          "email": "admin-user@fiware.org",
+          "email": "battery-user@fiware.org",
           "credentials": [
             {
               "type": "password",
-              "value": "admin-user"
+              "value": "battery-user"
             }
           ],
           "clientRoles": {
+            "did:key:z6Mkv4Lh9zBTPLoFhLHHMFJA7YAeVw5HFYZV8rkdfY9fNtm3": [
+              "BATTERY_VIEWER"
+            ],
             "account": [
               "view-profile",
               "manage-account"

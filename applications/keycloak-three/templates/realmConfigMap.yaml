@@ -83,6 +83,30 @@ data:
       ],
       "users": [
         {
+          "username": "battery-user",
+          "enabled": true,
+          "email": "battery-user@fiware.org",
+          "credentials": [
+            {
+              "type": "password",
+              "value": "battery-user"
+            }
+          ],
+          "clientRoles": {
+            "did:key:z6Mkv4Lh9zBTPLoFhLHHMFJA7YAeVw5HFYZV8rkdfY9fNtm3": [
+              "BATTERY_VIEWER"
+            ],
+            "account": [
+              "view-profile",
+              "manage-account"
+            ]
+          },
+          "groups": [
+            "/admin",
+            "/consumer"
+          ]
+        },
+        {
           "username": "battery-user-soc",
           "enabled": true,
           "email": "battery-user@fiware.org",
