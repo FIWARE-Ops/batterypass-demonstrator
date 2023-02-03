@@ -1,0 +1,101 @@
+route:
+  enabled: true
+  host: kc-three.batterypass.fiware.dev
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  certificate:
+    issuer:
+      kind: ClusterIssuer
+      name: letsencrypt-aws-prod
+  
+realm:
+  orionPep:
+    baseUrl: https://orion-ld
+    adminUrl: https://orion-ld
+    redirectUris:
+      - https://orion-ld/
+    webOrigins:
+      - https://orion-ld/
+
+keycloak:
+  logging:
+    level: INFO
+  replicaCount: 1
+  auth:
+    adminUser: fiwareAdmin
+    adminPassword: fiwareAdmin
+  serviceAccount:
+    create: true
+  rbac:
+    create: true
+    rules:
+      - apiGroups:
+        - security.openshift.io
+        resourceNames:
+        - anyuid
+        resources:
+        - securitycontextconstraints
+        verbs:
+        - use
+
+  
+  keycloakConfigCli:
+    enabled: true
+    # current image does not contain 20.0.3., thus we need this fix
+    command: 
+      - java
+      - -jar
+      - /opt/bitnami/keycloak-config-cli/keycloak-config-cli-20.0.1.jar
+
+    extraEnvVars:
+      - name: IMPORT_FILES_LOCATIONS
+        value: "/config/*"
+    containerSecurityContext:
+      enabled: false
+    podSecurityContext:
+      enabled: false
+    existingConfigmap: keycloak-three-realm
+  
+  extraEnvVars:
+  - name: KEYCLOAK_PROXY_ADDRESS_FORWARDING
+    value: "true"
+  - name: KEYCLOAK_LOG_LEVEL
+    value: DEBUG
+ # - name: VCISSUER_ISSUER_DID
+ #   value: "did:key:z6Mkp7DVYuruxmKxsy2Rb3kMnfHgZZpbWYnY9rodvVfky7uj"
+  - name: VCISSUER_WALTID_ADDRESS
+    value: "http://waltid-three-vcwaltid"
+
+  extraVolumeMounts:
+    - name: profiles
+      mountPath: /opt/bitnami/keycloak/conf/profile.properties
+      subPath: profile.properties
+    - name: providers
+      mountPath: /opt/bitnami/keycloak/providers/
+
+  extraVolumes:
+    - name: profiles
+      configMap:
+        name: keycloak-three-profile
+    - name: providers
+      emptyDir: {}
+
+
+  initContainers:
+    - name: add-vc-issuer
+      image: quay.io/fiware/keycloak-vc-issuer:0.0.1-pre-4
+      imagePullPolicy: Always
+      volumeMounts:
+        - name: providers
+          mountPath: /target
+  
+  postgresql:
+    enabled: false
+
+  externalDatabase:
+    host: postgresql
+    user: postgres
+    database: keycloak_three
+    existingSecret: postgres-secret
+    existingSecretPasswordKey: postgres-password

@@ -229,7 +229,7 @@ applications:
 
   - name: keycloak-three
     enabled: true
-    source_path: applications/keycloak-two
+    source_path: applications/keycloak-three
     source_ref: *branch
     destination: *destination
     purpose: *purpose
