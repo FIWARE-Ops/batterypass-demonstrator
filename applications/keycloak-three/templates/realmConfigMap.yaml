@@ -96,7 +96,6 @@ data:
             "did:key:z6Mkv4Lh9zBTPLoFhLHHMFJA7YAeVw5HFYZV8rkdfY9fNtm3": [
               "BATTERY_VIEWER",
               "BATTERY_VIEWER_SOC"
-
             ],
             "account": [
               "view-profile",
