@@ -83,13 +83,13 @@ data:
       ],
       "users": [
         {
-          "username": "battery-user",
+          "username": "battery-user-soc",
           "enabled": true,
           "email": "battery-user@fiware.org",
           "credentials": [
             {
               "type": "password",
-              "value": "battery-user"
+              "value": "battery-user-soc"
             }
           ],
           "clientRoles": {
