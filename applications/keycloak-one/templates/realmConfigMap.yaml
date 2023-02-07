@@ -35,7 +35,12 @@ data:
             },
             {
               "name": "BATTERY_VIEWER_SOC",
-              "description": "Is allowed to just view the SoC ofbatteries",
+              "description": "Is allowed to just view the SoC of batteries",
+              "clientRole": true
+            },
+            {
+              "name": "BATTERY_ADMIN",
+              "description": "Is allowed to manage batteries",
               "clientRole": true
             }
           ],
@@ -95,7 +100,8 @@ data:
           "clientRoles": {
             "did:key:z6Mkv4Lh9zBTPLoFhLHHMFJA7YAeVw5HFYZV8rkdfY9fNtm3": [
               "BATTERY_VIEWER",
-              "BATTERY_VIEWER_SOC"
+              "BATTERY_VIEWER_SOC",
+              "BATTERY_ONE"
             ],
             "account": [
               "view-profile",
