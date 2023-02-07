@@ -279,3 +279,28 @@ curl --location --request POST 'https://idm-one.batterypass.fiware.dev/ar/policy
   }
 }'
 ```
+
+## Demo Users & Roles
+
+### The roles
+
+The following roles are defined by participant ONE:
+
+| Name                | Permissions                                              |
+|---------------------|----------------------------------------------------------|
+| BATTERY_ADMIN       | GET,POST,PUT,DELETE on all entites of type BATTERY       |
+| BATTERY_VIEWER      | GET on all entites of type BATTERY                       |
+| BATTERY_VIEWER_SOC  | GET on the attribute SoC for all entites of type BATTERY |
+
+### The users
+In all participants, some demo-users are provided:
+
+> :bulb: If credentials for the user are allowed, depends on the trusted_list(see [first policy creation](#policy-registry)) of the participant. 
+> In the demonstrator environment, ONE allows TWO to assign BATTERY_VIEWER and THREE BATTERY_VIEWER_SOC. Thus, the battery-user in THREE will be denied.
+
+| Name | Participant | Role |
+|------------|-------------|------|
+| admin-user | [ONE](https://kc-one.batterypass.fiware.dev/realms/fiware-server/account/#/)| BATTERY_ADMIN |
+| battery-user | [TWO](https://kc-two.batterypass.fiware.dev/realms/fiware-server/account/#/)| BATTERY_VIEWER | 
+| battery-user | [THREE](https://kc-three.batterypass.fiware.dev/realms/fiware-server/account/#/)| BATTERY_VIEWER |
+| battery-user-soc | [THREE](https://kc-three.batterypass.fiware.dev/realms/fiware-server/account/#/)| BATTERY_VIEWER_SOC |
