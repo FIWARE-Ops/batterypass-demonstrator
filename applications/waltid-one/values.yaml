@@ -2,7 +2,7 @@ vcwaltid:
   deployment:
     image:  
       repository: quay.io/fiware/waltid
-      tag: 1.13.0-SNAPSHOT
+      tag: 1.14.0-SNAPSHOT
   api:
     core: 
       enabled: true
