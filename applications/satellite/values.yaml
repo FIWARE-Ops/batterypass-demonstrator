@@ -1,5 +1,7 @@
 ishare-satellite:
-
+  deployment:
+    image:
+      tag: 1.3.0-PRE-10
   route: 
     enabled: true
     host: idm-one.batterypass.fiware.dev
@@ -264,6 +266,7 @@ ishare-satellite:
           -----END CERTIFICATE-----
 
       - id: "EU.EORI.DEONE"
+        did: "did:key:z6MkoGuq2weWn4XqQrPPhdmXht7fj8EMiK3qJueEKfJUq3uH"
         name: "Batterypass Participant One"
         status: "Active"
         start_date: "2021-09-27T00:00:00Z"
@@ -308,6 +311,7 @@ ishare-satellite:
           -----END CERTIFICATE-----
  
       - id: "EU.EORI.DETWO"
+        did: "did:key:z6Mkp7DVYuruxmKxsy2Rb3kMnfHgZZpbWYnY9rodvVfky7uj"
         name: "Batterypass Participant Two"
         status: "Active"
         start_date: "2021-09-27T00:00:00Z"
@@ -352,6 +356,7 @@ ishare-satellite:
           -----END CERTIFICATE-----
 
       - id: "EU.EORI.DETHREE"
+        did: "did:key:z6Mkea5d45isCMFRneWAnXxV6BJX8ogJCxrKorifwqrmyCyU"
         name: "Batterypass Participant Three"
         status: "Active"
         start_date: "2021-09-27T00:00:00Z"
