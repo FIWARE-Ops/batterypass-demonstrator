@@ -63,9 +63,12 @@ keycloak:
   - name: KEYCLOAK_LOG_LEVEL
     value: DEBUG
   - name: VCISSUER_ISSUER_DID
-    value: "did:key:z6MkoGuq2weWn4XqQrPPhdmXht7fj8EMiK3qJueEKfJUq3uH"
+    value: "did:key:z6MkigCEnopwujz8Ten2dzq91nvMjqbKQYcifuZhqBsEkH7g"
   - name: VCISSUER_WALTID_ADDRESS
     value: "http://waltid-one-vcwaltid"
+  - name: VCISSUER_ISSUER_KEY_FILE
+    value: /opt/keys/keyfile.json
+
 
   extraVolumeMounts:
     - name: profiles
@@ -73,6 +76,8 @@ keycloak:
       subPath: profile.properties
     - name: providers
       mountPath: /opt/bitnami/keycloak/providers/
+    - name: issuer-key
+      mountPath: /opt/keys
 
   extraVolumes:
     - name: profiles
@@ -80,11 +85,14 @@ keycloak:
         name: keycloak-one-profile
     - name: providers
       emptyDir: {}
+    - name: issuer-key
+      configMap:
+        name: keycloak-one-key
 
 
   initContainers:
     - name: add-vc-issuer
-      image: quay.io/fiware/keycloak-vc-issuer:0.1.0
+      image: quay.io/fiware/keycloak-vc-issuer:0.2.0-pre-9
       imagePullPolicy: Always
       volumeMounts:
         - name: providers
