@@ -267,7 +267,7 @@ ishare-satellite:
           -----END CERTIFICATE-----
 
       - id: "EU.EORI.DEONE"
-        did: "did:key:z6MkoGuq2weWn4XqQrPPhdmXht7fj8EMiK3qJueEKfJUq3uH"
+        did: "did:key:z6MkigCEnopwujz8Ten2dzq91nvMjqbKQYcifuZhqBsEkH7g"
         name: "Batterypass Participant One"
         status: "Active"
         start_date: "2021-09-27T00:00:00Z"
@@ -312,7 +312,7 @@ ishare-satellite:
           -----END CERTIFICATE-----
  
       - id: "EU.EORI.DETWO"
-        did: "did:key:z6Mkp7DVYuruxmKxsy2Rb3kMnfHgZZpbWYnY9rodvVfky7uj"
+        did: "did:key:z6MkkSMQG86ZC5pcJUXNg1evKugKjstRbUhWmMKwt1hE3Pmq"
         name: "Batterypass Participant Two"
         status: "Active"
         start_date: "2021-09-27T00:00:00Z"
@@ -357,7 +357,7 @@ ishare-satellite:
           -----END CERTIFICATE-----
 
       - id: "EU.EORI.DETHREE"
-        did: "did:key:z6Mkea5d45isCMFRneWAnXxV6BJX8ogJCxrKorifwqrmyCyU"
+        did: "did:key:z6MkpSdSEX5EB31EqW8RqvVpwbgUVyTW88H6s9QXhsLZXvSr"
         name: "Batterypass Participant Three"
         status: "Active"
         start_date: "2021-09-27T00:00:00Z"
