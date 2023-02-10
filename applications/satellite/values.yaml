@@ -268,7 +268,7 @@ ishare-satellite:
 
       - id: "EU.EORI.DEONE"
         did: "did:key:z6MkigCEnopwujz8Ten2dzq91nvMjqbKQYcifuZhqBsEkH7g"
-        name: "issuer"
+        name: "Batterypass Participant One"
         status: "Active"
         start_date: "2021-09-27T00:00:00Z"
         end_date: "2051-09-27T00:00:00Z"
