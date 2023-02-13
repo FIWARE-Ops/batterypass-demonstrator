@@ -17,9 +17,9 @@ vcwaltid:
       enabled: true
 
   persistence: 
-    enabled: true
+    enabled: false
     pvc:
-      size: 8Gi
+      size: 1Gi
 
   templates:
     BatteryPassAuthCredential.json: |
