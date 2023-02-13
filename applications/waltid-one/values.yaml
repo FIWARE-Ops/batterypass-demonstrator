@@ -17,7 +17,7 @@ vcwaltid:
       enabled: true
 
   persistence: 
-    enabled: false
+    enabled: true
     pvc:
       size: 8Gi
 
