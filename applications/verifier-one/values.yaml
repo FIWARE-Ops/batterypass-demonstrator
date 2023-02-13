@@ -4,6 +4,7 @@ vcverifier:
       tag: 0.0.3-pre-3
       pullPolicy: Always
     protectedResource: https://one.batterypass.fiware.dev/vc/ngsi-ld/v1/entities?type=BATTERY
+    tirAddress: https://satellite.batterypass.fiware.dev/trusted_issuer/v3/issuers/
     walt:
       coreUrl: http://waltid-one-vcwaltid:7000
       signatoryUrl: http://waltid-one-vcwaltid:7001
