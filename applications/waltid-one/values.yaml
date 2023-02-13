@@ -16,6 +16,9 @@ vcwaltid:
     essif: 
       enabled: true
 
+  persistence: 
+    size: 8Gi
+
   templates:
     BatteryPassAuthCredential.json: |
       {
