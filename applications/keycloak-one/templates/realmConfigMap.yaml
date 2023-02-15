@@ -98,7 +98,7 @@ data:
             }
           ],
           "clientRoles": {
-            "did:key:z6Mkv4Lh9zBTPLoFhLHHMFJA7YAeVw5HFYZV8rkdfY9fNtm3": [
+            "did:key:z6MkigCEnopwujz8Ten2dzq91nvMjqbKQYcifuZhqBsEkH7g": [
               "BATTERY_VIEWER",
               "BATTERY_VIEWER_SOC",
               "BATTERY_ADMIN"
@@ -136,7 +136,7 @@ data:
       ],
       "clients": [
         {
-          "clientId": "did:key:z6Mkv4Lh9zBTPLoFhLHHMFJA7YAeVw5HFYZV8rkdfY9fNtm3",
+          "clientId": "did:key:z6MkigCEnopwujz8Ten2dzq91nvMjqbKQYcifuZhqBsEkH7g",
           "enabled": true,
           "description": "Client to receive Verifiable Credentials targeted at verifier-one.batterypass.fiware.dev",
           "surrogateAuthRequired": false,
