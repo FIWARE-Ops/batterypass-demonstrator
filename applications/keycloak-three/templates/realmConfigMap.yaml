@@ -27,7 +27,7 @@ data:
           }
         ],
         "client": {
-          "did:key:z6Mkv4Lh9zBTPLoFhLHHMFJA7YAeVw5HFYZV8rkdfY9fNtm3": [
+          "did:key:z6MkigCEnopwujz8Ten2dzq91nvMjqbKQYcifuZhqBsEkH7g": [
             {
               "name": "BATTERY_VIEWER",
               "description": "Is allowed to view batteries",
