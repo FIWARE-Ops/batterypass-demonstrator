@@ -7,7 +7,7 @@ dsba-pdp:
     image:  
       pullPolicy: Always
       repository: quay.io/fiware/dsba-pdp 
-      tag: 0.3.2
+      tag: 0.3.3
     logLevel: DEBUG
     ishare:
       certificate: |
@@ -189,4 +189,4 @@ dsba-pdp:
     trustedVerifiers:
       - https://verifier-one.batterypass.fiware.dev/verifier/.well-known/jwks
 
-    providerId: "did:key:z6Mkv4Lh9zBTPLoFhLHHMFJA7YAeVw5HFYZV8rkdfY9fNtm3"
+    providerId: "did:key:z6MkigCEnopwujz8Ten2dzq91nvMjqbKQYcifuZhqBsEkH7g"
