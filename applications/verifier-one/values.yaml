@@ -9,8 +9,8 @@ vcverifier:
     walt:
       coreUrl: http://waltid-one-vcwaltid:7000
       signatoryUrl: http://waltid-one-vcwaltid:7001
-      auditorUrl: http://waltid-one-vcwaltid:7002
-      custodianUrl: http://waltid-one-vcwaltid:7003
+      auditorUrl: http://waltid-one-vcwaltid:7003
+      custodianUrl: http://waltid-one-vcwaltid:7002
       essifUrl: http://waltid-one-vcwaltid:7010
   route:
     enabled: true
