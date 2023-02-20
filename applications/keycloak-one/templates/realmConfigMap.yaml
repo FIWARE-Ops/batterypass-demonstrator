@@ -158,7 +158,16 @@ data:
           "attributes": {
               "client.secret.creation.time": "1675260539",
               "expiryInMin": "3600",
-              "supportedVCTypes": "BatteryPassAuthCredential",
+              "supportedVCTypes":  [
+                { 
+                    "type": "BatteryPassAuthCredential",
+                    "format": "ldp_vc"
+                },
+                { 
+                    "type": "BatteryPassAuthCredential",
+                    "format": "jwt_vc_json"
+                }
+            ]
           },
           "authenticationFlowBindingOverrides": {},
           "fullScopeAllowed": true,
