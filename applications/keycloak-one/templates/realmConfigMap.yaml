@@ -56,8 +56,7 @@ data:
               "composite": false,
               "clientRole": true
             }
-          ],
-          "fiware-login": [],
+          ]
         }
       },
       "groups": [
