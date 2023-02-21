@@ -20,7 +20,7 @@ realm:
 
 keycloak:
   logging:
-    level: DEBUG
+    level: INFO
   replicaCount: 1
   auth:
     adminUser: fiwareAdmin
@@ -61,7 +61,7 @@ keycloak:
   - name: KEYCLOAK_PROXY_ADDRESS_FORWARDING
     value: "true"
   - name: KEYCLOAK_LOG_LEVEL
-    value: DEBUG
+    value: INFO
   - name: VCISSUER_ISSUER_DID
     value: "did:key:z6MkigCEnopwujz8Ten2dzq91nvMjqbKQYcifuZhqBsEkH7g"
   - name: VCISSUER_WALTID_ADDRESS
