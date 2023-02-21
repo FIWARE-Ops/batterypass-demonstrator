@@ -32,7 +32,6 @@ vcwaltid:
         "credentialSubject": {
           "familyName": "Happy",
           "firstName": "User",
-          "id": "did:ebsi:2AEMAqXWKYMu1JHPAgGcga4dxu7ThgfgN95VyJBJGZbSJUtp",
           "roles": [{
             "names": ["P.Info.gold"],
             "target": "did:elsi:target"
