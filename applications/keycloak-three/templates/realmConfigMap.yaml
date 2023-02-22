@@ -108,7 +108,7 @@ data:
         {
           "username": "battery-user-soc",
           "enabled": true,
-          "email": "battery-user@fiware.org",
+          "email": "battery-user-soc@fiware.org",
           "credentials": [
             {
               "type": "password",
