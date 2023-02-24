@@ -91,7 +91,7 @@ keycloak:
 
   initContainers:
     - name: add-vc-issuer
-      image: wistefan/kc-two
+      image: wistefan/kc-init
       imagePullPolicy: Always
       volumeMounts:
         - name: providers
