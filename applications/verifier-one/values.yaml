@@ -1,17 +1,17 @@
 vcverifier:
   deployment:
     image:
-      tag: 0.0.3-pre-3
+      repository: quay.io/wi_stefan/vcverifier
+      tag: 1.0.8-PRE
       pullPolicy: Always
-    protectedResource: https://one.batterypass.fiware.dev/vc/ngsi-ld/v1/entities?type=BATTERY
-    tirAddress: https://satellite.batterypass.fiware.dev/trusted_issuer/v3/issuers/
-    did: did:key:z6MkigCEnopwujz8Ten2dzq91nvMjqbKQYcifuZhqBsEkH7g
-    walt:
-      coreUrl: http://waltid-one-vcwaltid:7000
-      signatoryUrl: http://waltid-one-vcwaltid:7001
+    logging: 
+      level: DEBUG
+    ssikit:
       auditorUrl: http://waltid-one-vcwaltid:7003
-      custodianUrl: http://waltid-one-vcwaltid:7002
-      essifUrl: http://waltid-one-vcwaltid:7010
+    verifier:
+      tirAddress: https://satellite.batterypass.fiware.dev/trusted_issuer/v3/issuers/
+      did: did:key:z6MkigCEnopwujz8Ten2dzq91nvMjqbKQYcifuZhqBsEkH7g
+   
   route:
     enabled: true
     host: verifier-one.batterypass.fiware.dev
