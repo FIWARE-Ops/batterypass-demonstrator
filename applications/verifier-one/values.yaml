@@ -7,8 +7,7 @@ vcverifier:
     logging: 
       level: DEBUG
       pathsToSkip:
-        - "/metrics"
-        - "/health"
+        - "/metrics", "/health"
     ssikit:
       auditorUrl: http://waltid-one-vcwaltid:7003
     verifier:
