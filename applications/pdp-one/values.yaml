@@ -187,6 +187,6 @@ dsba-pdp:
         url: "https://satellite.batterypass.fiware.dev"
         
     trustedVerifiers:
-      - https://verifier-one.batterypass.fiware.dev/verifier/.well-known/jwks
+      - https://verifier-one.batterypass.fiware.dev/.well-known/jwks
 
     providerId: "did:key:z6MkigCEnopwujz8Ten2dzq91nvMjqbKQYcifuZhqBsEkH7g"
