@@ -1,0 +1,57 @@
+pdc-portal:
+  deployment:
+    image:
+      repository: wistefan/pdc-portal
+      tag: latest
+      pullPolicy: Always
+
+  route:
+    enabled: true
+    host: portal-one.batterypass.fiware.dev
+    tls:
+      termination: edge
+      insecureEdgeTerminationPolicy: Redirect
+    # should a certificate for the address automatically be generated
+    certificate:
+      issuer:
+        kind: ClusterIssuer
+        name: letsencrypt-aws-prod
+
+  debug:
+    enabled: true
+
+  config:
+    title: "Packet Delivery Portal"
+  
+    client:
+      id: "EU.EORI.NLPACKETDEL"
+
+    external:
+      host: https://pdc-portal.i4trust-demo.fiware.dev
+
+    oidc:
+      redirect_path: "/openid_connect1.0/return"
+      acr: "urn:http://eidas.europa.eu/LoA/NotNotified/high"
+
+    cb:
+      endpoint: "https://one.batterypass.fiware.dev/vc/ngsi-ld/v1"
+      endpoint_siop: "https://one.batterypass.fiware.dev/vc/ngsi-ld/v1"
+    
+    express:
+      port: 7000
+
+        
+    # Configuration for SIOP flow
+    siop:
+      # SIOP flow enabled
+      enabled: true
+      # Redirect URI that the wallet will use to send the VC/VP
+      redirect_uri: https://i4trust-demo-pdc-backend-vcbackend-i4trust-demo.apps.fiware.fiware.dev/verifier/api/v1/authenticationresponse
+      # Base uri of the verifier
+      verifier_uri: https://i4trust-demo-pdc-backend-vcbackend-i4trust-demo.apps.fiware.fiware.dev
+      # DID of verifier
+      did: "did:key:z6MkufEFkFSCXg1DHUsZbYuWcGf4QHat34YSoVgs67ED9m4S"
+      # Type of credential that the Verifier will accept
+      scope: "dsba.credentials.presentation.PacketDeliveryService"
+
+    idp:
