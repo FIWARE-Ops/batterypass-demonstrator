@@ -27,7 +27,7 @@ pdc-portal:
       id: "EU.EORI.NLPACKETDEL"
 
     external:
-      host: https://pdc-portal.i4trust-demo.fiware.dev
+      host: https://portal-one.batterypass.fiware.dev
 
     oidc:
       redirect_path: "/openid_connect1.0/return"
