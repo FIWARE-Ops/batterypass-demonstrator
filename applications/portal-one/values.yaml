@@ -4,6 +4,10 @@ pdc-portal:
       repository: quay.io/wi_stefan/demo-portal
       tag: 0.0.1
       pullPolicy: Always
+    livenessProbe:
+      initialDelaySeconds: 4
+    readinessProbe:
+      initialDelaySeconds: 5
 
   route:
     enabled: true
@@ -21,7 +25,7 @@ pdc-portal:
     enabled: true
 
   config:
-    title: "Packet Delivery Portal"
+    title: "Batterypass Demo Portal"
   
     client:
       id: "EU.EORI.NLPACKETDEL"
