@@ -26,7 +26,8 @@ pdc-portal:
 
   config:
     title: "Batterypass Demo Portal"
-  
+    getLabel: "Battery"
+    inputLabel: "Battery ID"
     client:
       id: "EU.EORI.NLPACKETDEL"
 
