@@ -1,8 +1,8 @@
 pdc-portal:
   deployment:
     image:
-      repository: quay.io/wi_stefan/demo-portal
-      tag: 0.0.1
+      repository: quay.io/wi_stefan/pdc-portal
+      tag: 2.4.0-PRE
       pullPolicy: Always
     livenessProbe:
       initialDelaySeconds: 4
