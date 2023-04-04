@@ -26,11 +26,14 @@ Get a VerifiableCredential for users in TWO:
 ![kc-login](kc-acc-login.png)
 
 - go to the verifiable credentials tab
-- choose "BatteryPassAuthCredential" and "Generate VerifiableCredential Request"
+- choose "BatteryPassAuthCredential ldp_vc" and "Initiate Credential-Issuance(OIDC4CI)"
+> :bulb: The "Request VerfiableCredential" and "Generate VerifiableCredential-Request" buttons provide proprietary and unsecure access to credentials,
+> that was used before [OIDC4CI](https://openid.net/specs/openid-4-verifiable-credential-issuance-1_0.html) was specified. They will be removed in one of 
+> the next versions.
 
 ![show-vc](issuer-vc.png)
 
-- use a wallet like ```wallet.fiware.dev``` and scan the credential
+- use a wallet like ```demo-wallet.fiware.dev``` and scan the credential
 
 The issued credential will look similar to the following one:
 
@@ -84,18 +87,22 @@ The issued credential will look similar to the following one:
 
 The verifier is responsible for verifying the actual credential. This includes checking the signature and validity of the credential, checking the schema and the inclusion of the issuer in the dataspaces' trusted-list. 
 Once verification is done, the Verifier provides a JWT to the client, wich can be used to access downstream services. The JWT includes the credential in its payload, so that the information can further be used(f.e. in order to make authorization decisions). Downstream services only have to check the validity of the JWT, instead of the full credential.
-The deployed [Verifier](https://github.com/FIWARE/VCVerifier) comes with a demonstrational frontend, that allows logging-in with the [SIOP-2 Flow](https://openid.net/specs/openid-connect-self-issued-v2-1_0.html). It is not intended for productive usage, but for demonstrational purposes. To access the secured APIs, go to the [Verifier's Login-Page](https://verifier-one.batterypass.fiware.dev/) and initiate the login-process:
-1. Go to Login-Page
+In order to provide a frontend to be used for demonstration, a [demo-portal](https://github.com/i4Trust/pdc-portal) is deployed. It is integrated with the login-page provided by the [Verifier](https://github.com/FIWARE/VCVerifier). When choosing "Login with VC", popup presenting the QR to initiate the [SIOP-2 Flow](https://openid.net/specs/openid-connect-self-issued-v2-1_0.html) shows up and will fullfill the authentication-flow.
+To access the secured APIs, go to the [Portal's Index-Page](https://portal-one.batterypass.fiware.dev/) and choose "Login with VC":
+1. Go to Index-Page
 
-![login-page](login1.png)
+![index-page](portal_start.png)
 
-2. Scan the QR with your wallet:
-![scan-qr](login-qr.png) 
+2. Scan the QR from the popup with your wallet:
+![scan-qr](login_qr.png) 
 
-3. Accept the Login-Request in your wallet, then get forwarded to the success-page:
-![success](rec-cred.png)
+3. Accept the Request and send the credential from the wallet:
+![send](send_cred.png)
 
-4. You can now tryout the received JWT to request the service. Depending on the issuer, various requests are possible. (ONE and TWO - request entities of type BATTERY, THREE request the SoC-attribute of batteries)
+4. The popup will close and you get forwarded to the portal:
+![success](portal.png)
+
+5. You can now tryout the received JWT to request the service. Depending on the issuer and role, various requests are possible. (ONE and TWO - request entities of type BATTERY, THREE request the SoC-attribute of batteries)
 ![try-out](try-out.png)
 
 An example JWT will look like:
