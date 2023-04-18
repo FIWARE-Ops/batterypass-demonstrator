@@ -22,6 +22,34 @@ vcwaltid:
       size: 1Gi
 
   templates:
+    ParticipantCredential.json: |
+      {
+        "@context": [
+          "https://www.w3.org/2018/credentials/v1",
+          "https://registry.lab.gaia-x.eu/development/api/trusted-shape-registry/v1/shapes/jsonld/trustframework#"
+        ],
+        "type": [
+          "VerifiableCredential"
+        ],
+        "id": "did:web:raw.githubusercontent.com:egavard:payload-sign:master",
+        "issuer": "did:web:raw.githubusercontent.com:egavard:payload-sign:master",
+        "issuanceDate": "2023-03-21T12:00:00.148Z",
+        "credentialSubject": {
+          "id": "did:web:raw.githubusercontent.com:egavard:payload-sign:master",
+          "type": "gx:LegalParticipant",
+          "gx:legalName": "Gaia-X compliant participant",
+          "gx:legalRegistrationNumber": {
+            "gx:vatID": "MYVATID"
+          },
+          "gx:headquarterAddress": {
+            "gx:countrySubdivisionCode": "BE-BRU"
+          },
+          "gx:legalAddress": {
+            "gx:countrySubdivisionCode": "BE-BRU"
+          },
+          "gx-terms-and-conditions:gaiaxTermsAndConditions": "70c1d713215f95191a11d38fe2341faed27d19e083917bc8732ca4fea4976700"
+        }
+      }
     BatteryPassAuthCredential.json: |
       {
         "@context": ["https://www.w3.org/2018/credentials/v1"],
