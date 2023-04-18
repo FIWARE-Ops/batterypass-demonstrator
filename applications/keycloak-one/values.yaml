@@ -69,8 +69,8 @@ keycloak:
     #value: "did:key:z6MkigCEnopwujz8Ten2dzq91nvMjqbKQYcifuZhqBsEkH7g"
   - name: VCISSUER_WALTID_ADDRESS
     value: "http://waltid-one-vcwaltid"
-  - name: VCISSUER_ISSUER_KEY_FILE
-    value: /opt/keys/keyfile.json
+  #- name: VCISSUER_ISSUER_KEY_FILE
+  #  value: /opt/keys/keyfile.json
 
 
   extraVolumeMounts:
