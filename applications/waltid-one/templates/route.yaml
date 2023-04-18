@@ -7,13 +7,14 @@ metadata:
   labels:
     {{ include "waltid.labels" . | nindent 4 }}
   annotations:
+    haproxy.router.openshift.io/rewrite-target: /v1/did/did:web:one.batterypass.fiware.dev:did
     cert-utils-operator.redhat-cop.io/certs-from-secret: {{ include "waltid.fullname" . }}-tls-sec
     {{- with .Values.route.annotations }}
       {{- toYaml . | nindent 4 }}
       {{- end }}
 spec:
   host: {{ .Values.route.host}}
-  path: /v1/did/did:web:one.batterypass.fiware.dev:did
+  path: /did/did.json
   port: 
     targetPort: 7000 
   to:
