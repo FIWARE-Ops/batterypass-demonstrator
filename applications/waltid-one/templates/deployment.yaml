@@ -5,12 +5,8 @@ metadata:
   labels:
     {{ include "waltid.labels" . | nindent 4 }}
 spec:
-  replicas: {{ .Values.deployment.replicaCount }}
-  revisionHistoryLimit: {{ .Values.deployment.revisionHistoryLimit }}
-  strategy:
-  {{- with .Values.deployment.updateStrategy }}
-  {{- toYaml . | nindent 4 }}
-  {{- end }}
+  replicas: 1
+  revisionHistoryLimit: 3
   selector:
     matchLabels:
       app.kubernetes.io/name: {{ include "waltid.name" . }}-certs
@@ -19,13 +15,6 @@ spec:
     metadata:
       labels:
         {{ include "waltid.labels" . | nindent 8 }}
-        {{- with .Values.deployment.additionalLabels }}
-        {{- toYaml . | nindent 8 }}
-        {{- end }}
-      annotations:
-        {{- with .Values.deployment.additionalAnnotations }}
-        {{- toYaml . | nindent 8 }}
-        {{- end }}
     spec: 
       serviceAccountName: {{ include "waltid.serviceAccountName" . }}
       containers:
