@@ -16,7 +16,7 @@ spec:
       labels:
         {{ include "waltid.labels" . | nindent 8 }}
     spec: 
-      serviceAccountName: {{ include "waltid.serviceAccountName" . }}
+      serviceAccountName: default
       containers:
         - name: {{ .Chart.Name }}
           imagePullPolicy: Always
