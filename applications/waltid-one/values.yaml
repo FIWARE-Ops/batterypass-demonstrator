@@ -1,3 +1,14 @@
+route:
+  enabled: true
+  host: one.batterypass.fiware.dev
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  certificate:
+    issuer:
+      kind: ClusterIssuer
+      name: letsencrypt-aws-prod
+
 vcwaltid:
   deployment:
     image:  
