@@ -161,7 +161,7 @@ data:
               "vctypes_GaiaXParticipantCredential": "ldp_vc,jwt_vc_json",
               "vc_subjectDid": "did:key:z6MkigCEnopwujz8Ten2dzq91nvMjqbKQYcifuZhqBsEkH7g",
               "vc_gx:legalName": "Batterypass Participant One",
-              "GaiaXParticipantCredential_claims": "subjectDid,gx:legalName"
+              "GaiaXParticipantCredential_claims": "subjectDid,gx:legalName",
               "BatteryPassAuthCredential_claims": "email,firstName,familyName,roles"
           },
           "authenticationFlowBindingOverrides": {},
