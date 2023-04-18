@@ -157,8 +157,10 @@ data:
           "attributes": {
               "client.secret.creation.time": "1675260539",
               "expiryInMin": "3600",
-              "vctypes_BatteryPassAuthCredential": "ldp_vc,jwt_vc_json"
-
+              "vctypes_BatteryPassAuthCredential": "ldp_vc,jwt_vc_json",
+              "vctypes_ParticipantCredential": "ldp_vc,jwt_vc_json",
+              "vc_id": "did:key:z6MkigCEnopwujz8Ten2dzq91nvMjqbKQYcifuZhqBsEkH7g",
+              "vc_gx:legalName": "Batterypass Participant One"
           },
           "authenticationFlowBindingOverrides": {},
           "fullScopeAllowed": true,
