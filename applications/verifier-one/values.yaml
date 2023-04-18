@@ -2,7 +2,7 @@ vcverifier:
   deployment:
     image:
       repository: quay.io/wi_stefan/vcverifier
-      tag: 1.0.8-PRE
+      tag: 1.1.0-PRE
       pullPolicy: Always
     logging: 
       level: DEBUG
