@@ -22,7 +22,7 @@ vcwaltid:
       size: 1Gi
 
   templates:
-    ParticipantCredential.json: |
+    GaiaXParticipantCredential.json: |
       {
         "@context": [
           "https://www.w3.org/2018/credentials/v1",
