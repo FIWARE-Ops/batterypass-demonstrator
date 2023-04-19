@@ -267,7 +267,7 @@ ishare-satellite:
           -----END CERTIFICATE-----
 
       - id: "EU.EORI.DEONE"
-        did: "did:key:z6MkigCEnopwujz8Ten2dzq91nvMjqbKQYcifuZhqBsEkH7g"
+        did: "did:web:one.batterypass.fiware.dev:did"
         name: "Batterypass Participant One"
         status: "Active"
         start_date: "2021-09-27T00:00:00Z"
