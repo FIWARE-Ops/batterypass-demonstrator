@@ -12,7 +12,7 @@ vcverifier:
       auditorUrl: http://waltid-one-vcwaltid:7003
     verifier:
       tirAddress: https://satellite.batterypass.fiware.dev/trusted_issuer/v3/issuers
-      did: did:key:z6MkigCEnopwujz8Ten2dzq91nvMjqbKQYcifuZhqBsEkH7g
+      did: did:web:one.batterypass.fiware.dev:did
    
   route:
     enabled: true
