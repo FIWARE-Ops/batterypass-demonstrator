@@ -12,7 +12,4 @@ mysql:
         resources:
         - securitycontextconstraints
         verbs:
-        - use    
-  initdbScripts:
-    create.sql: |
-      CREATE DATABASE til;
+        - use
