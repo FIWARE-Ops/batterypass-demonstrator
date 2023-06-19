@@ -92,6 +92,12 @@ keycloak:
         name: keycloak-three-profile
     - name: providers
       emptyDir: {}
+    - name: did-config
+      configMap:
+        name: keycloak-three-did-config
+    - name: did-secret
+      secret: 
+        secretName: waltid-three-vcwaltid-tls-sec
 
 
   initContainers:

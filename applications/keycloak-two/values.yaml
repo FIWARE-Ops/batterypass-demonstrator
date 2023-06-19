@@ -91,6 +91,12 @@ keycloak:
     - name: issuer-key
       configMap:
         name: keycloak-two-key
+    - name: did-config
+      configMap:
+        name: keycloak-two-did-config
+    - name: did-secret
+      secret: 
+        secretName: waltid-two-vcwaltid-tls-sec
 
 
   initContainers:
