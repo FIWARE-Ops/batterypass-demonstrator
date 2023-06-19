@@ -75,12 +75,6 @@ keycloak:
       mountPath: /opt/bitnami/keycloak/providers/
     - name: issuer-key
       mountPath: /opt/keys/
-    - name: did-config
-      configMap:
-        name: keycloak-two-did-config
-    - name: did-secret
-      secret: 
-        secretName: waltid-two-vcwaltid-tls-sec
 
   extraVolumes:
     - name: profiles
