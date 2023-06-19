@@ -246,3 +246,14 @@ keyrock:
       value: "25"
     - name: IDM_EMAIL_ADDRESS
       value: "bp-one@fiware.io"
+
+## Init scripts for Keyrock
+initScript:
+  ## Creation of role mapping policies during deployment
+  rolePolicy:
+    policyEnabled: true
+    dbName: bp_one_idm
+    issuer: "EU.EORI.DEONE"
+    notBefore: "1616583866"
+    notOnOrAfter: "1735817171"
+    issuerDid: "EU.EORI.DEONE"

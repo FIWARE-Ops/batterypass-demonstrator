@@ -1,8 +1,19 @@
+route:
+  enabled: true
+  host: three.batterypass.fiware.dev
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  certificate:
+    issuer:
+      kind: ClusterIssuer
+      name: letsencrypt-aws-prod
+
 vcwaltid:
   deployment:
     image:  
       repository: quay.io/fiware/waltid
-      tag: 1.13.0-SNAPSHOT
+      tag: 1.14.1-SNAPSHOT
   api:
     core: 
       enabled: true
@@ -37,5 +48,5 @@ vcwaltid:
         "issuer": "did:ebsi:2A9BZ9SUe6BatacSpvs1V5CdjHvLpQ7bEsi2Jb6LdHKnQxaN",
         "validFrom": "2021-08-31T00:00:00Z",
         "issuanceDate": "2021-08-31T00:00:00Z",
-        "type": ["VerifiableCredential", "BatteryPassAuthCredential"]
+        "type": ["BatteryPassAuthCredential"]
       }

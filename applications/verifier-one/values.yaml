@@ -19,11 +19,12 @@ vcverifier:
           scope: 
             - BatteryPassAuthCredential     
           trustedParticipants:
-            CustomerCredential: 
+            BatteryPassAuthCredential: 
               - https://trusted-issuers.batterypass.fiware.dev
           trustedIssuers:
-            CustomerCredential: 
+            BatteryPassAuthCredential: 
               - https://trusted-issuers.batterypass.fiware.dev
+
     initContainers:
       - name: load-did
         image: quay.io/opencloudio/curl:4.2.0-build.8

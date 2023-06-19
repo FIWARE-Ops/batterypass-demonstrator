@@ -63,11 +63,9 @@ keycloak:
   - name: KEYCLOAK_LOG_LEVEL
     value: DEBUG
   - name: VCISSUER_ISSUER_DID
-    value: "did:key:z6MkpSdSEX5EB31EqW8RqvVpwbgUVyTW88H6s9QXhsLZXvSr"
+    value: "did:web:three.batterypass.fiware.dev:did"
   - name: VCISSUER_WALTID_ADDRESS
     value: "http://waltid-three-vcwaltid"
-  - name: VCISSUER_ISSUER_KEY_FILE
-    value: /opt/keys/keyfile.json
 
   extraVolumeMounts:
     - name: profiles
@@ -77,6 +75,13 @@ keycloak:
       mountPath: /opt/bitnami/keycloak/providers/
     - name: issuer-key
       mountPath: /opt/keys/
+    - name: did-config
+      configMap:
+        name: keycloak-three-did-config
+    - name: did-secret
+      secret: 
+        secretName: waltid-three-vcwaltid-tls-sec
+
 
   extraVolumes:
     - name: issuer-key
@@ -96,6 +101,20 @@ keycloak:
       volumeMounts:
         - name: providers
           mountPath: /target
+    - name: load-did
+      image: quay.io/opencloudio/curl:4.2.0-build.8
+      imagePullPolicy: Always
+      command: 
+        - /bin/sh
+        - /opt/did/script/import.sh
+      env:
+        - name: WALTID_CORE_ADDRESS
+          value: "waltid-three-vcwaltid:7000"
+      volumeMounts:
+        - name: did-config
+          mountPath: /opt/did/script
+        - name: did-secret
+          mountPath: /opt/did/secret
   
   postgresql:
     enabled: false

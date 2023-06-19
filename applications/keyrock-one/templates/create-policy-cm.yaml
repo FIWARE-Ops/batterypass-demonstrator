@@ -1,0 +1,140 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: one-keyrock-create-policy-cm
+  annotations:
+    "helm.sh/hook": post-upgrade
+    "helm.sh/hook-delete-policy": before-hook-creation
+    "helm.sh/hook-weight": "1"
+data:
+  create.sh: |-
+    mysql -h {{ .Values.keyrock.db.host }} -u {{ .Values.keyrock.db.user }} -p$DB_PASSWORD {{ .Values.initScript.rolePolicy.dbName }} <<EOF
+
+    {{ if .Values.initScript.rolePolicy.policyEnabled -}}
+
+    -- Static objects
+    SET @rules := JSON_ARRAY(
+      JSON_OBJECT(
+        "effect", "Permit"
+      )
+    );
+
+    SET @subjectBatteryAdmin := "BATTERY_ADMIN";
+
+    -- Policies Legal Representative
+    SET @policiesAdmin := JSON_ARRAY(
+      JSON_OBJECT(
+        "rules", CAST(@rules as JSON),
+        "target", JSON_OBJECT(
+          "actions", JSON_ARRAY("GET","POST","PATCH","PUT"),
+          "resource", JSON_OBJECT(
+            "type", "BATTERY",
+            "attributes", JSON_ARRAY("*"),
+            "identifiers", JSON_ARRAY("*")
+          )
+        )
+      )
+    );
+
+    -- Insert Delegation Evidence Legal Representative VC
+    SET @delegationAdmin := JSON_OBJECT(
+      "target", JSON_OBJECT(
+        "accessSubject", @subjectBatteryAdmin
+      ),
+      "notBefore", {{ .Values.initScript.rolePolicy.notBefore }},
+      "notOnOrAfter", {{ .Values.initScript.rolePolicy.notOnOrAfter }},
+      "policyIssuer", {{ .Values.initScript.rolePolicy.issuerDid | quote }},
+      "policySets", JSON_ARRAY(
+        JSON_OBJECT(
+          "target", JSON_OBJECT(
+            "environment", JSON_OBJECT(
+              "licenses", JSON_ARRAY("ISHARE.0001")
+            )
+          ),
+          "policies", CAST(@policiesAdmin as JSON)
+        )
+      )
+    );
+    INSERT IGNORE INTO delegation_evidence (policy_issuer, access_subject,policy) VALUES ({{ .Values.initScript.rolePolicy.issuerDid | quote }}, @subjectBatteryAdmin, @delegationAdmin);
+
+    SET @subjectBatteryViewer := "BATTERY_VIEWER";
+
+    -- Policies Viewer
+    SET @policiesViewer := JSON_ARRAY(
+      JSON_OBJECT(
+        "rules", CAST(@rules as JSON),
+        "target", JSON_OBJECT(
+          "actions", JSON_ARRAY("GET"),
+          "resource", JSON_OBJECT(
+            "type", "BATTERY",
+            "attributes", JSON_ARRAY("*"),
+            "identifiers", JSON_ARRAY("*")
+          )
+        )
+      )
+    );
+
+    -- Insert Delegation Evidence Legal Representative VC
+    SET @delegationViewer := JSON_OBJECT(
+      "target", JSON_OBJECT(
+        "accessSubject", @subjectBatteryViewer
+      ),
+      "notBefore", {{ .Values.initScript.rolePolicy.notBefore }},
+      "notOnOrAfter", {{ .Values.initScript.rolePolicy.notOnOrAfter }},
+      "policyIssuer", {{ .Values.initScript.rolePolicy.issuerDid | quote }},
+      "policySets", JSON_ARRAY(
+        JSON_OBJECT(
+          "target", JSON_OBJECT(
+            "environment", JSON_OBJECT(
+              "licenses", JSON_ARRAY("ISHARE.0001")
+            )
+          ),
+          "policies", CAST(@policiesViewer as JSON)
+        )
+      )
+    );
+    INSERT IGNORE INTO delegation_evidence (policy_issuer, access_subject,policy) VALUES ({{ .Values.initScript.rolePolicy.issuerDid | quote }}, @subjectBatteryViewer, @delegationViewer);
+
+    SET @subjectBatteryViewerSoC := "BATTERY_VIEWER_SOC";
+
+    -- Policies Viewer SoC
+    SET @policiesViewerSoC := JSON_ARRAY(
+      JSON_OBJECT(
+        "rules", CAST(@rules as JSON),
+        "target", JSON_OBJECT(
+          "actions", JSON_ARRAY("GET"),
+          "resource", JSON_OBJECT(
+            "type", "BATTERY",
+            "attributes", JSON_ARRAY("SoC"),
+            "identifiers", JSON_ARRAY("*")
+          )
+        )
+      )
+    );
+
+    -- Insert Delegation Evidence Legal Representative VC
+    SET @delegationViewerSoC := JSON_OBJECT(
+      "target", JSON_OBJECT(
+        "accessSubject", @subjectBatteryViewerSoC
+      ),
+      "notBefore", {{ .Values.initScript.rolePolicy.notBefore }},
+      "notOnOrAfter", {{ .Values.initScript.rolePolicy.notOnOrAfter }},
+      "policyIssuer", {{ .Values.initScript.rolePolicy.issuerDid | quote }},
+      "policySets", JSON_ARRAY(
+        JSON_OBJECT(
+          "target", JSON_OBJECT(
+            "environment", JSON_OBJECT(
+              "licenses", JSON_ARRAY("ISHARE.0001")
+            )
+          ),
+          "policies", CAST(@policiesViewerSoC as JSON)
+        )
+      )
+    );
+    INSERT IGNORE INTO delegation_evidence (policy_issuer, access_subject,policy) VALUES ({{ .Values.initScript.rolePolicy.issuerDid | quote }}, @subjectBatteryViewerSoC, @delegationViewerSoC);
+
+
+    {{- end }}
+
+    COMMIT;
+    EOF
