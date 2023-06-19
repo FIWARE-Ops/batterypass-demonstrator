@@ -8,5 +8,5 @@ appVersion: "0.2.0"
 
 dependencies:
   - name: pdc-portal
-    version: 0.3.1
+    version: 2.2.5
     repository: https://i4Trust.github.io/helm-charts
