@@ -1,4 +1,3 @@
-{{- if .Values.initData.marketplaceCreateIssuer.initEnabled -}}
 apiVersion: batch/v1
 kind: Job
 metadata:
@@ -29,11 +28,10 @@ spec:
               readOnly: 
           env:
             - name: TIL_HOST
-              value: {{ .Values.initData.tilHost | quote }}
+              value: "http://trusted-issuers-trusted-issuers-list:8080"
       volumes:
         - name: pdc-til-init-data-volume
           projected:
             sources:
               - configMap:
                   name: pdc-til-data-cm
-{{- end }}
