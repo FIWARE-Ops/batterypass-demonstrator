@@ -54,5 +54,7 @@ pdc-portal:
       verifier_uri: https://verifier-one.batterypass.fiware.dev
       # DID of verifier
       did: "did:key:z6MkufEFkFSCXg1DHUsZbYuWcGf4QHat34YSoVgs67ED9m4S"
+      # Client ID to be used
+      client_id: 4972b082-c3db-414c-afb7-bf48f2fc42f6
 
     idp:

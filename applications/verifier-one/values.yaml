@@ -2,7 +2,7 @@ vcverifier:
   deployment:
     image:
       repository: quay.io/fiware/vcverifier
-      tag: 1.2.0-pre-7
+      tag: 2.0.5
       pullPolicy: Always
     logging: 
       level: DEBUG
@@ -11,9 +11,42 @@ vcverifier:
     ssikit:
       auditorUrl: http://waltid-one-vcwaltid:7003
     verifier:
-      tirAddress: https://satellite.batterypass.fiware.dev/trusted_issuer/v3/issuers
+      tirAddress: https://trusted-issuers.batterypass.fiware.dev/v3/issuers
       did: did:web:one.batterypass.fiware.dev:did
-   
+    configRepo:
+      services:
+        4972b082-c3db-414c-afb7-bf48f2fc42f6:
+          scope: 
+            - BatteryPassAuthCredential     
+          trustedParticipants:
+            CustomerCredential: 
+              - https://trusted-issuers.batterypass.fiware.dev
+          trustedIssuers:
+            CustomerCredential: 
+              - https://trusted-issuers.batterypass.fiware.dev
+    initContainers:
+      - name: load-did
+        image: quay.io/opencloudio/curl:4.2.0-build.8
+        imagePullPolicy: Always
+        command: 
+          - /bin/sh
+          - /opt/did/script/import.sh
+        env:
+          - name: WALTID_CORE_ADDRESS
+            value: "waltid-one-vcwaltid:7000"
+        volumeMounts:
+          - name: batterypass-one-did-config
+            mountPath: /opt/did/script
+          - name: did-secret
+            mountPath: /opt/did/secret
+    additionalVolumes:
+      - name: batterypass-one-did-config
+        configMap:
+          name: batterypass-one-did-config
+      - name: did-secret
+        secret: 
+          secretName: portal-one-pdc-portal-tls-sec
+
   route:
     enabled: true
     host: verifier-one.batterypass.fiware.dev
