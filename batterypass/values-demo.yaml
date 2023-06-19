@@ -272,6 +272,25 @@ applications:
     helm_values:
     - values.yaml
 
+  - name: mysql-til
+    enabled: true
+    source_path: applications/mysql-til
+    source_ref: *branch
+    destination: *destination
+    purpose: *purpose
+    helm_values:
+    - values.yaml
+
+
+  - name: trusted-issuers
+    enabled: true
+    source_path: applications/trusted-issuers
+    source_ref: *branch
+    destination: *destination
+    purpose: *purpose
+    helm_values:
+    - values.yaml
+
 
 
 

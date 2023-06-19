@@ -26,7 +26,7 @@ trusted-issuers-list:
       tag: 0.0.3
   database:
     persistence: true
-    host: mysql-bp
+    host: mysql-til
     username: root
     name: til
     existingSecret:
