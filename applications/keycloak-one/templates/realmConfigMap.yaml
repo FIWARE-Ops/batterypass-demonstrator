@@ -27,7 +27,7 @@ data:
           }
         ],
         "client": {
-          "did:key:z6MkigCEnopwujz8Ten2dzq91nvMjqbKQYcifuZhqBsEkH7g": [
+          "did:web:one.batterypass.fiware.dev:did": [
             {
               "name": "BATTERY_VIEWER",
               "description": "Is allowed to view batteries",
@@ -97,9 +97,8 @@ data:
             }
           ],
           "clientRoles": {
-            "did:key:z6MkigCEnopwujz8Ten2dzq91nvMjqbKQYcifuZhqBsEkH7g": [
+            "did:web:one.batterypass.fiware.dev:did": [
               "BATTERY_VIEWER",
-              "BATTERY_VIEWER_SOC",
               "BATTERY_ADMIN"
             ],
             "account": [
@@ -135,7 +134,7 @@ data:
       ],
       "clients": [
         {
-          "clientId": "did:key:z6MkigCEnopwujz8Ten2dzq91nvMjqbKQYcifuZhqBsEkH7g",
+          "clientId": "did:web:one.batterypass.fiware.dev:did",
           "enabled": true,
           "description": "Client to receive Verifiable Credentials targeted at verifier-one.batterypass.fiware.dev",
           "surrogateAuthRequired": false,

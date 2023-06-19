@@ -27,7 +27,7 @@ data:
           }
         ],
         "client": {
-          "did:key:z6MkigCEnopwujz8Ten2dzq91nvMjqbKQYcifuZhqBsEkH7g": [
+          "did:web:one.batterypass.fiware.dev:did": [
             {
               "name": "BATTERY_VIEWER",
               "description": "Is allowed to view batteries",
@@ -92,7 +92,7 @@ data:
             }
           ],
           "clientRoles": {
-            "did:key:z6MkigCEnopwujz8Ten2dzq91nvMjqbKQYcifuZhqBsEkH7g": [
+            "did:web:one.batterypass.fiware.dev:did": [
               "BATTERY_VIEWER"
             ],
             "account": [
@@ -116,7 +116,7 @@ data:
             }
           ],
           "clientRoles": {
-            "did:key:z6MkigCEnopwujz8Ten2dzq91nvMjqbKQYcifuZhqBsEkH7g": [
+            "did:web:one.batterypass.fiware.dev:did": [
               "BATTERY_VIEWER_SOC"
             ],
             "account": [
