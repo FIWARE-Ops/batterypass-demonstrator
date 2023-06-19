@@ -1,0 +1,88 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: pdc-til-data-cm
+data:
+  mp_create_issuer-one.json: |
+    {
+      "did": "did:web:one.batterypass.fiware.dev:did",
+      "credentials": [
+        {
+          "validFor": {
+            "from": "2022-07-21T17:32:28Z",
+            "to": "2040-07-21T17:32:28Z"
+          },
+          "credentialsType": "BatteryPassAuthCredential",
+          "claims": [
+            {
+              "name": "roles",
+              "allowedValues": [
+                [{
+                  "names": ["BATTERY_ADMIN"],
+                  "target": "did:web:one.batterypass.fiware.dev:did"
+                }]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+
+  mp_create_issuer-two.json: |
+    {
+      "did": "did:web:two.batterypass.fiware.dev:did",
+      "credentials": [
+        {
+          "validFor": {
+            "from": "2022-07-21T17:32:28Z",
+            "to": "2040-07-21T17:32:28Z"
+          },
+          "credentialsType": "BatteryPassAuthCredential",
+          "claims": [
+            {
+              "name": "roles",
+              "allowedValues": [
+                [{
+                  "names": ["BATTERY_VIEWER"],
+                  "target": "did:web:one.batterypass.fiware.dev:did"
+                }]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  
+  mp_create_issuer-three.json: |
+    {
+      "did": "did:web:three.batterypass.fiware.dev:did",
+      "credentials": [
+        {
+          "validFor": {
+            "from": "2022-07-21T17:32:28Z",
+            "to": "2040-07-21T17:32:28Z"
+          },
+          "credentialsType": "BatteryPassAuthCredential",
+          "claims": [
+            {
+              "name": "roles",
+              "allowedValues": [
+                [{
+                  "names": ["BATTERY_VIEWER_SOC"],
+                  "target": "did:web:one.batterypass.fiware.dev:did"
+                }]
+              ]
+            },
+            {
+              "name": "roles",
+              "allowedValues": [
+                [{
+                  "names": ["BATTERY_VIEWER"],
+                  "target": "did:web:one.batterypass.fiware.dev:did"
+                }]
+              ]
+            }
+          ]
+        }
+      ]
+    }

@@ -98,7 +98,6 @@ data:
           ],
           "clientRoles": {
             "did:web:one.batterypass.fiware.dev:did": [
-              "BATTERY_VIEWER",
               "BATTERY_ADMIN"
             ],
             "account": [

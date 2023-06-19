@@ -1,0 +1,39 @@
+{{- if .Values.initData.marketplaceCreateIssuer.initEnabled -}}
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: provider-til-data-{{ randAlphaNum 5 | lower }}
+  annotations:
+    "helm.sh/hook": post-upgrade
+    "helm.sh/hook-delete-policy": before-hook-creation
+    "helm.sh/hook-weight": "1"
+spec:
+  backoffLimit: 1
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: pdc-til-init-data
+          image: alpine/curl
+          command: 
+            - sh
+            - -c
+            - |
+              curl -X POST ${TIL_HOST}/issuer --header "Content-Type: application/json" -d @/data/mp_create_issuer-one.json;
+              curl -X POST ${TIL_HOST}/issuer --header "Content-Type: application/json" -d @/data/mp_create_issuer-two.json;
+              curl -X POST ${TIL_HOST}/issuer --header "Content-Type: application/json" -d @/data/mp_create_issuer-three.json;
+
+          volumeMounts:
+            - name: pdc-til-init-data-volume
+              mountPath: "/data"
+              readOnly: 
+          env:
+            - name: TIL_HOST
+              value: {{ .Values.initData.tilHost | quote }}
+      volumes:
+        - name: pdc-til-init-data-volume
+          projected:
+            sources:
+              - configMap:
+                  name: pdc-til-data-cm
+{{- end }}
