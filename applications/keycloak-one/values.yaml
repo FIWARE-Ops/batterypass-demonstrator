@@ -66,11 +66,8 @@ keycloak:
     value: INFO
   - name: VCISSUER_ISSUER_DID
     value: "did:web:one.batterypass.fiware.dev:did"
-    #value: "did:key:z6MkigCEnopwujz8Ten2dzq91nvMjqbKQYcifuZhqBsEkH7g"
   - name: VCISSUER_WALTID_ADDRESS
     value: "http://waltid-one-vcwaltid"
-  #- name: VCISSUER_ISSUER_KEY_FILE
-  #  value: /opt/keys/keyfile.json
 
 
   extraVolumeMounts:
@@ -91,6 +88,12 @@ keycloak:
     - name: issuer-key
       configMap:
         name: keycloak-one-key
+    - name: did-config
+      configMap:
+        name: keycloak-one-did-config
+    - name: did-secret
+      secret: 
+        secretName: waltid-one-vcwaltid-tls-sec
 
 
   initContainers:
@@ -100,7 +103,21 @@ keycloak:
       volumeMounts:
         - name: providers
           mountPath: /target
-  
+    - name: load-did
+      image: quay.io/opencloudio/curl:4.2.0-build.8
+      imagePullPolicy: Always
+      command: 
+        - /bin/sh
+        - /opt/did/script/import.sh
+      env:
+        - name: WALTID_CORE_ADDRESS
+          value: "waltid-one-vcwaltid:7000"
+      volumeMounts:
+        - name: did-config
+          mountPath: /opt/did/script
+        - name: did-secret
+          mountPath: /opt/did/secret
+          
   postgresql:
     enabled: false
 
