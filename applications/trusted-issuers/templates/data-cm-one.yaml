@@ -70,13 +70,8 @@ data:
                 [{
                   "names": ["BATTERY_VIEWER_SOC"],
                   "target": "did:web:one.batterypass.fiware.dev:did"
-                }]
-              ]
-            },
-            {
-              "name": "roles",
-              "allowedValues": [
-                [{
+                },
+                {
                   "names": ["BATTERY_VIEWER"],
                   "target": "did:web:one.batterypass.fiware.dev:did"
                 }]
