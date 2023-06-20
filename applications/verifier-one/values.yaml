@@ -14,6 +14,7 @@ vcverifier:
       tirAddress: https://trusted-issuers.batterypass.fiware.dev/v3/issuers
       did: did:web:one.batterypass.fiware.dev:did
     configRepo:
+      configEndpoint: ""
       services:
         4972b082-c3db-414c-afb7-bf48f2fc42f6:
           scope: 
