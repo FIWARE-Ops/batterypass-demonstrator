@@ -11,7 +11,7 @@ secretsEnabled: &secretsEnabled false
 applications:
   - name: mongodb-one
     enabled: true
-    source_path: applications/mongodb-one
+    source_path: applications/one/mongodb-one
     source_ref: *branch
     destination: *destination
     purpose: *purpose
@@ -20,7 +20,7 @@ applications:
 
   - name: mongodb-two
     enabled: true
-    source_path: applications/mongodb-two
+    source_path: applications/two/mongodb-two
     source_ref: *branch
     destination: *destination
     purpose: *purpose
@@ -29,7 +29,7 @@ applications:
 
   - name: mongodb-three
     enabled: true
-    source_path: applications/mongodb-three
+    source_path: applications/three/mongodb-three
     source_ref: *branch
     destination: *destination
     purpose: *purpose
@@ -38,7 +38,7 @@ applications:
 
   - name: orion-ld-one
     enabled: true
-    source_path: applications/orion-ld-one
+    source_path: applications/one/orion-ld-one
     source_ref: *branch
     destination: *destination
     purpose: *purpose
@@ -47,7 +47,7 @@ applications:
 
   - name: orion-ld-two
     enabled: true
-    source_path: applications/orion-ld-two
+    source_path: applications/two/orion-ld-two
     source_ref: *branch
     destination: *destination
     purpose: *purpose
@@ -56,7 +56,7 @@ applications:
 
   - name: orion-ld-three
     enabled: true
-    source_path: applications/orion-ld-three
+    source_path: applications/three/orion-ld-three
     source_ref: *branch
     destination: *destination
     purpose: *purpose
@@ -65,7 +65,7 @@ applications:
 
   - name: kong-one
     enabled: true
-    source_path: applications/kong-one
+    source_path: applications/one/kong-one
     source_ref: *branch
     destination: *destination
     purpose: *purpose
@@ -74,7 +74,7 @@ applications:
 
   - name: kong-two
     enabled: true
-    source_path: applications/kong-two
+    source_path: applications/two/kong-two
     source_ref: *branch
     destination: *destination
     purpose: *purpose
@@ -83,7 +83,7 @@ applications:
 
   - name: kong-three
     enabled: true
-    source_path: applications/kong-three
+    source_path: applications/three/kong-three
     source_ref: *branch
     destination: *destination
     purpose: *purpose
@@ -109,7 +109,7 @@ applications:
 
   - name: keyrock-one
     enabled: true
-    source_path: applications/keyrock-one
+    source_path: applications/one/keyrock-one
     source_ref: *branch
     destination: *destination
     purpose: *purpose
@@ -118,7 +118,7 @@ applications:
 
   - name: keyrock-two
     enabled: true
-    source_path: applications/keyrock-two
+    source_path: applications/two/keyrock-two
     source_ref: *branch
     destination: *destination
     purpose: *purpose
@@ -127,7 +127,7 @@ applications:
 
   - name: keyrock-three
     enabled: true
-    source_path: applications/keyrock-three
+    source_path: applications/three/keyrock-three
     source_ref: *branch
     destination: *destination
     purpose: *purpose
@@ -154,7 +154,7 @@ applications:
 
   - name: keycloak-one
     enabled: true
-    source_path: applications/keycloak-one
+    source_path: applications/one/keycloak-one
     source_ref: *branch
     destination: *destination
     purpose: *purpose
@@ -163,7 +163,7 @@ applications:
 
   - name: keycloak-two
     enabled: true
-    source_path: applications/keycloak-two
+    source_path: applications/two/keycloak-two
     source_ref: *branch
     destination: *destination
     purpose: *purpose
@@ -172,7 +172,7 @@ applications:
 
   - name: waltid-one
     enabled: true
-    source_path: applications/waltid-one
+    source_path: applications/one/waltid-one
     source_ref: *branch
     destination: *destination
     purpose: *purpose
@@ -181,7 +181,7 @@ applications:
 
   - name: waltid-two
     enabled: true
-    source_path: applications/waltid-two
+    source_path: applications/two/waltid-two
     source_ref: *branch
     destination: *destination
     purpose: *purpose
@@ -190,7 +190,7 @@ applications:
 
   - name: waltid-three
     enabled: true
-    source_path: applications/waltid-three
+    source_path: applications/three/waltid-three
     source_ref: *branch
     destination: *destination
     purpose: *purpose
@@ -199,7 +199,7 @@ applications:
 
   - name: verifier-one
     enabled: true
-    source_path: applications/verifier-one
+    source_path: applications/one/verifier-one
     source_ref: *branch
     destination: *destination
     purpose: *purpose
@@ -208,7 +208,7 @@ applications:
 
   - name: pdp-one
     enabled: true
-    source_path: applications/pdp-one
+    source_path: applications/one/pdp-one
     source_ref: *branch
     destination: *destination
     purpose: *purpose
@@ -217,7 +217,7 @@ applications:
 
   - name: portal-one
     enabled: true
-    source_path: applications/portal-one
+    source_path: applications/one/portal-one
     source_ref: *branch
     destination: *destination
     purpose: *purpose
