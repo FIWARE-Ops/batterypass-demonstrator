@@ -281,9 +281,6 @@ The following roles are defined by participant ONE:
 ### The users
 In all participants, some demo-users are provided:
 
-> :bulb: If credentials for the user are allowed, depends on the trusted_list(see [first policy creation](#policy-registry)) of the participant. 
-> In the demonstrator environment, ONE allows TWO to assign BATTERY_VIEWER and THREE BATTERY_VIEWER_SOC. Thus, the battery-user in THREE will be denied.
-
 | Name | Participant | Role |
 |------------|-------------|------|
 | admin-user | [ONE](https://kc-one.batterypass.fiware.dev/realms/fiware-server/account/#/)| BATTERY_ADMIN |
