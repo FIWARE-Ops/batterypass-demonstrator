@@ -20,7 +20,7 @@ realm:
 
 keycloak:
   logging:
-    level: INFO
+    level: DEBUG
   replicaCount: 1
   auth:
     adminUser: fiwareAdmin
