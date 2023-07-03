@@ -19,6 +19,8 @@ realm:
       - https://orion-ld/
 
 keycloak:
+  image: 
+    tag: 21.1.2-debian-11-r1
   logging:
     level: DEBUG
   replicaCount: 1
