@@ -79,6 +79,8 @@ keycloak:
       mountPath: /opt/keys/
     - name: data
       mountPath: /data
+    - name: sm
+      mountPath: /sm
 
   extraVolumes:
     - name: data
@@ -86,6 +88,9 @@ keycloak:
     - name: profiles
       configMap:
         name: keycloak-two-profile
+    - name: sm
+      configMap:
+        name: keycloak-two-sm
     - name: providers
       emptyDir: {}
     - name: issuer-key
