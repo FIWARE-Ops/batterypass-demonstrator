@@ -12,8 +12,8 @@ route:
 vcwaltid:
   deployment:
     image:  
-      repository: quay.io/fiware/waltid
-      tag: 1.14.1-SNAPSHOT
+      repository: waltid/ssikit
+      tag: 1.2306281817.jwt-sign-rsa
   api:
     core: 
       enabled: true
